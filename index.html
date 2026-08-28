@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartPath — Login</title>
+    <link rel="preconnect" href="https://googleapis.com" />
+    <link rel="preconnect" href="https://gstatic.com" crossorigin />
+    <link href="https://googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <main class="login-page">
+      <section class="login-shell" aria-label="Acesso à plataforma SmartPath">
+        <aside class="brand-panel" aria-label="SmartPath — seu caminho inteligente">
+          <!-- Substitua a URL abaixo pela sua cópia local da imagem, se necessário. -->
+          <img
+            class="brand-panel-image"
+            src="img/smart_path_login.jpeg"
+            alt="Logo SmartPath e caminho até uma montanha com uma bandeira azul"
+          />
+        </aside>
+
+        <section class="form-panel">
+          <div class="form-content">
+            <header class="welcome-block">
+              <h1 id="welcome-title">Bem-vindo(a)!</h1>
+              <p id="welcome-desc">Faça login para continuar sua jornada.</p>
+            </header>
+
+
+            <div class="auth-tabs" role="tablist" aria-label="Tipo de acesso">
+              <button class="auth-tab active" type="button" role="tab" aria-selected="true" id="tab-login">Login</button>
+              <button class="auth-tab" type="button" role="tab" aria-selected="false" id="tab-signup">Cadastro</button>
+              <div class="tab-indicator"></div>
+            </div>
+
+            <!-- Formulário de Login Original (Mantido Intacto) -->
+            <form class="login-form">
+              <label class="field-label" for="email">E-mail</label>
+              <div class="input-wrap">
+                <img src="img/perfil.png" alt="Perfil" class="icone_login">
+                <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required />
+              </div>
+
+              <label class="field-label password-label" for="password">Senha</label>
+              <div class="input-wrap">
+                <img src="img/cadeado.png" alt="cadeado" class="icone_login">
+                <input id="password" name="password" type="password" placeholder="Sua senha" autocomplete="current-password" required />  
+                <button type="button" class="btn-olho" onclick="Mudarimagem('password', 'iconeOlho')"> 
+                  <img src="img/olho.png" alt="Visualizar senha" class="icone_login" id="iconeOlho">
+                </button>
+
+              </div>
+
+              <div class="forgot-row">
+                <a class="text-link" href="#recuperar-senha">Esqueceu sua senha?</a>
+              </div>
+
+            <button class="primary-button" type="submit" onclick="entrar(event)">Entrar</button>
+
+              <div class="or-divider" aria-hidden="true"><span>ou</span></div>
+
+              <button class="google-button" type="button">
+                <span class="google-mark" aria-hidden="true">G</span>
+                <span>Entrar com Google</span>
+              </button>
+
+              <p class="signup-copy">
+                Ainda não tem uma conta?
+                <a class="text-link signup-link" href="#cadastro" id="link-ir-cadastro">Cadastre-se</a>
+              </p>
+              </form>
+                        
+<!--  //////////////////////////// ///////////////CADASTRO///////// ////////////////////////  ///////////////-->
+                        
+            <!-- Novo Formulário de Cadastro Visual (Inicia Oculto) -->
+             <form class="signup-form hidden">
+              <label class="field-label" for="new-name">Nome Completo</label>
+              <div class="input-wrap">
+                <img src="img/perfil.png" alt="Perfil" class="icone_login">
+                <input id="new-name" name="name" type="text" placeholder="Seu nome" required />
+              </div>
+            
+              <label class="field-label" for="new-email">E-mail</label>
+              <div class="input-wrap">
+                <img src="img/perfil.png" alt="E-mail" class="icone_login">
+                <input id="new-email" name="email" type="email" placeholder="seu@email.com" required />
+              </div>
+            
+              <label class="field-label password-label" for="new-password">Criar Senha</label>
+              <div class="input-wrap">
+                <img src="img/cadeado.png" alt="Cadeado" class="icone_login">
+
+                <input id="new-password" name="password" type="password" placeholder="Crie uma senha forte" required />
+
+                <button type="button" class="btn-olho" onclick="Mudarimagem('new-password', 'iconeOlhoCadastro')"> 
+                  <img src="img/olho.png" alt="Visualizar senha" class="icone_login" id="iconeOlhoCadastro">
+                </button>
+              </div>
+            
+              <button class="primary-button" type="submit">Criar Conta</button>
+            
+              <div class="or-divider" aria-hidden="true"><span>ou</span></div>
+            
+              <button class="google-button" type="button">
+                <span class="google-mark" aria-hidden="true">G</span>
+                <span>Cadastrar com Google</span>
+              </button>
+            
+              <p class="signup-copy">
+                Já tem uma conta?
+                <a class="text-link signup-link" href="#login" id="link-ir-login">Faça Login</a>
+              </p>
+            </form>
+
+
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="login.js"></script>
+  </body>
+</html>
