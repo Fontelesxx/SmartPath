@@ -213,6 +213,10 @@ input:focus-visible {
 }
 
 
+#icone_google{
+  height: 25px;
+}
+
 .icon-button:hover { color: var(--smart-blue); }
 
 .forgot-row {
@@ -295,15 +299,7 @@ input:focus-visible {
   border-color: #bfd0e5;
 }
 
-.google-mark {
-  font-family: Arial, sans-serif;
-  font-size: 1.45rem;
-  font-weight: 700;
-  background: conic-gradient(from -45deg, #4285f4 0 25%, #34a853 0 45%, #fbbc05 0 68%, #ea4335 0 85%, #4285f4 0);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+
 
 .signup-copy {
   margin: 39px 0 0;
