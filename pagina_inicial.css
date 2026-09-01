@@ -9,7 +9,7 @@ button { font:inherit; border:0; }
 .brand-block { text-align:center; padding:0 8px 23px; }
 .brand-mark-wrap { height:116px; display:flex; align-items:center; justify-content:center; position:relative; }
 .brand-route-line { position:absolute; width:54px; height:16px; left:calc(50% - 27px); bottom:8px; border-bottom:2px solid #2877d6; border-radius:50%; opacity:.72; transform:rotate(-10deg); }
-.brand-mark { width:106px; height:106px; object-fit:contain; }
+.brand-mark { width:256px; height:256px; object-fit:contain; }
 .wordmark { margin-top:0; font:800 29px/1 'Manrope',sans-serif; letter-spacing:-1.6px; color:#102a55; }
 .wordmark strong { color:#61a8dc; font-weight:800; letter-spacing:-1.8px; }
 .brand-block p { margin:12px 0 0; font-size:15px; line-height:1.45; color:#435066; }
