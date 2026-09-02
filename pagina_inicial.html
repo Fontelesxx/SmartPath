@@ -1,39 +1,393 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Smart Path — Página inicial</title>
+
+    <link rel="stylesheet" href="pagina_inicial.css">
 </head>
+
 <body>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Path — Página inicial</title>
-  <link rel="stylesheet" href="pagina_inicial.css" />
-</head>
-<body>
-  <main class="smart-shell">
-    <aside class="smart-sidebar" aria-label="Navegação principal">
-      <div class="brand-block">
-        <div class="brand-mark-wrap"><img class="brand-mark" src="img/logo_inicial.jpeg" alt="" /></div>
-      </div>
-      <nav class="side-nav">
-        <button class="nav-item is-active" type="button"><span><img src="img/botao-de-inicio.png" alt="icone de inicio" class = 'icones_pagina_inicial'></span><span>Início</span></button>
-        <button class="nav-item" type="button"><span><img src="img/abra-o-livro.png" alt="icone de estudos" class = 'icones_pagina_inicial'></span><span>Estudos</span></button>
-        <button class="nav-item" type="button"><span><img src="img/maneira.png" alt="icone de trilha" class = 'icones_pagina_inicial'></span><span>Trilhas</span></button>
-        <button class="nav-item" type="button"><span><img src="img/confirme.png" alt="icone de simulados"class = 'icones_pagina_inicial'></span><span>Simulados</span></button>
-        <button class="nav-item" type="button"><span><img src="img/grafico.png" alt="icone de rafico" class = 'icones_pagina_inicial'></span><span>Desempenho</span></button>
-        <button class="nav-item" type="button"><span><img src="img/perfil-de-usuario.png" alt="icone_perfil" class = 'icones_pagina_inicial'></span><span>Perfil</span></button>
-      </nav>
-    </aside>
-    <section class="smart-content">
-      <header class="topbar"><div><h1>Olá, Guga! 👋</h1><p>Vamos continuar evoluindo hoje?</p></div><div class="profile-actions"><button class="icon-button" type="button"> <img src="img/notificacao.png" alt="icone de notificação" class = 'icones_pagina_inicial'></button><button class="avatar-button" type="button"><img src="/manus-storage/smart-path-avatar_2cde900c.png" alt="Ana" /></button></div></header>
-      <section class="next-step-card"><div class="next-step-copy"><span class="eyebrow">Seu próximo passo</span><h2>Continue sua trilha</h2><p>Foque, persista e conquiste!</p><button class="primary-cta" type="button">Continuar estudando →</button></div><img class="study-illustration" src="/manus-storage/smart-path-study_3ec167dd.png" alt="Estudante estudando" /></section>
-      <section class="metrics-grid"><article class="metric-card progress-card"><h3>Meu progresso</h3><div class="progress-content"><div class="progress-ring"><div><strong>72<span>%</span></strong><small>Geral</small></div></div><div class="progress-message"><p>Você está no<br />caminho certo!</p></div></div><button class="card-link" type="button">Ver desempenho →</button></article><article class="metric-card studies-card"><h3>Estudos de hoje</h3><div class="study-summary"><span class="metric-icon blue">▦</span><div><strong>2 <em>/ 4</em></strong><p>atividades concluídas</p></div></div><div class="bar-track"><span style="width:50%"></span></div><button class="card-link" type="button">Ver plano do dia →</button></article><article class="metric-card trail-card"><h3>Trilha atual</h3><div class="trail-summary"><span class="metric-icon rocket">↗</span><div><strong>Trilha ENEM<br />Completa</strong><p>Módulo 3 de 8</p></div></div><button class="card-link" type="button">Ver trilha →</button></article></section>
-      <section class="tip-card"><div class="tip-badge">✦</div><div class="tip-copy"><h2>Dica do dia</h2><p>Pequenos passos todos os dias<br /> te levam a grandes conquistas!</p></div><img src="/manus-storage/smart-path-mountain_c4bd4408.png" alt="Montanha com bandeira" /></section>
-    </section>
-  </main>
+    <main class="smart-shell">
+
+        <!-- BARRA LATERAL -->
+        <aside class="smart-sidebar" aria-label="Navegação principal">
+
+            <div class="brand-block">
+
+                <div class="brand-mark-wrap">
+                    <img
+                        class="brand-mark"
+                        src="img/logo_inicial.jpeg"
+                        alt="Logo Smart Path"
+                    >
+                </div>
+
+            </div>
+
+            <nav class="side-nav">
+
+                <button class="nav-item is-active" type="button">
+                    <span>
+                        <img
+                            src="img/botao-de-inicio.png"
+                            alt="Ícone de início"
+                            class="icones_pagina_inicial"
+                        >
+                    </span>
+
+                    <span>Início</span>
+                </button>
+
+
+                <button class="nav-item" type="button">
+                    <span>
+                        <img
+                            src="img/abra-o-livro.png"
+                            alt="Ícone de estudos"
+                            class="icones_pagina_inicial"
+                        >
+                    </span>
+
+                    <span>Estudos</span>
+                </button>
+
+
+                <button class="nav-item" type="button">
+                    <span>
+                        <img
+                            src="img/maneira.png"
+                            alt="Ícone de trilha"
+                            class="icones_pagina_inicial"
+                        >
+                    </span>
+
+                    <span>Trilhas</span>
+                </button>
+
+
+                <button class="nav-item" type="button">
+                    <span>
+                        <img
+                            src="img/confirme.png"
+                            alt="Ícone de simulados"
+                            class="icones_pagina_inicial"
+                        >
+                    </span>
+
+                    <span>Simulados</span>
+                </button>
+
+
+                <button class="nav-item" type="button">
+                    <span>
+                        <img
+                            src="img/grafico.png"
+                            alt="Ícone de gráfico"
+                            class="icones_pagina_inicial"
+                        >
+                    </span>
+
+                    <span>Desempenho</span>
+                </button>
+
+
+                <button class="nav-item" type="button">
+                    <span>
+                        <img
+                            src="img/perfil-de-usuario.png"
+                            alt="Ícone de perfil"
+                            class="icones_pagina_inicial"
+                        >
+                    </span>
+
+                    <span>Perfil</span>
+                </button>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <section class="smart-content">
+
+            <!-- TOPO -->
+            <header class="topbar">
+
+                <div>
+
+                    <h1>
+                        Olá, Guga! 👋
+                    </h1>
+
+                    <p>
+                        Vamos continuar evoluindo hoje?
+                    </p>
+
+                </div>
+
+
+                <div class="profile-actions">
+
+                    <button
+                        class="icon-button"
+                        type="button"
+                    >
+
+                        <img
+                            src="img/notificacao.png"
+                            alt="Ícone de notificação"
+                            class="icones_pagina_inicial"
+                        >
+
+                    </button>
+
+
+                    <button
+                        class="avatar-button"
+                        type="button"
+                    >
+
+                        <img
+                            src="/manus-storage/smart-path-avatar_2cde900c.png"
+                            alt="Ana"
+                        >
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- PRÓXIMO PASSO -->
+            <section class="next-step-card">
+
+                <div class="next-step-copy">
+
+                    <span class="eyebrow">
+                        Seu próximo passo
+                    </span>
+
+
+                    <h2>
+                        Continue sua trilha
+                    </h2>
+
+
+                    <p>
+                        Foque, persista e conquiste!
+                    </p>
+
+
+                    <button
+                        class="primary-cta"
+                        type="button"
+                    >
+                        Continuar estudando →
+                    </button>
+
+                </div>
+            </section>
+
+
+            <!-- CARDS DE MÉTRICAS -->
+            <section class="metrics-grid">
+
+                <!-- PROGRESSO -->
+                <article class="metric-card progress-card">
+
+                    <h3>
+                        Meu progresso
+                    </h3>
+
+
+                    <div class="progress-content">
+
+                        <div class="progress-ring">
+
+                            <div>
+
+                                <strong>
+                                    0<span>%</span>
+                                </strong>
+
+                                <small>
+                                    Geral
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-message">
+
+                            <p>
+                                Você está no<br>
+                                caminho certo!
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="card-link"
+                        type="button"
+                    >
+                        Ver desempenho →
+                    </button>
+
+                </article>
+
+
+                <!-- ESTUDOS -->
+                <article class="metric-card studies-card">
+
+                    <h3>
+                        Estudos de hoje
+                    </h3>
+
+
+                    <div class="study-summary">
+
+                        <span class="metric-icon blue">
+                            <img src="img/calendario.png" alt="calendario" height="35px">
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                0 <em>/ 4</em>
+                            </strong>
+
+                            <p>
+                                atividades concluídas
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="bar-track">
+
+                        <span style="width: 0%;"></span>
+
+                    </div>
+
+
+                    <button
+                        class="card-link"
+                        type="button"
+                    >
+                        Ver plano do dia →
+                    </button>
+
+                </article>
+
+
+                <!-- TRILHA -->
+                <article class="metric-card trail-card">
+
+                    <h3>
+                        Trilha atual
+                    </h3>
+
+
+                    <div class="trail-summary">
+
+                        <span class="metric-icon rocket">
+                            <img src="img/lancamento-de-foguete-espacial.png" alt="foguete" height="35px">
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Trilha ENEM<br>
+                                Completa
+                            </strong>
+
+                            <p>
+                                Módulo 0 de 8
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="card-link"
+                        type="button"
+                    >
+                        Ver trilha →
+                    </button>
+
+                </article>
+
+            </section>
+
+
+            <!-- DICA DO DIA -->
+            <section class="tip-card">
+
+                <!-- CÍRCULO DA ESTRELA -->
+                <div class="tip-badge">
+
+                    <img
+                        class="icon-estrela"
+                        src="img/sparkler.png"
+                        alt="Ícone de estrelas"
+                    >
+
+                </div>
+
+
+                <!-- TEXTO -->
+                <div class="tip-copy">
+
+                    <h2>
+                        Dica do dia
+                    </h2>
+
+
+                    <p>
+                        Pequenos passos todos os dias<br>
+                        te levam a grandes conquistas!
+                    </p>
+
+                    <!-- MONTANHA -->
+                  
+
+                </div>
+                
+
+            </section>
+
+        </section>
+
+    </main>
+    <footer></footer>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 </body>
+
 </html>
