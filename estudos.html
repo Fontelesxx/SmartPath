@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartPath - Estudos</title>
+
+    <link rel="stylesheet" href="pagina_inicial.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f5f8fd;
+            color: #10254d;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           LAYOUT
+        ========================= */
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            width: calc(100% - 303px);
+            padding: 38px 28px 40px;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .header-left h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .header-left p {
+            color: #63718a;
+            font-size: 17px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .notification {
+            width: 42px;
+            height: 42px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .notification img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .profile-image {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e7eef9;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            min-height: 700px;
+            box-shadow: 0 5px 25px rgba(30, 80, 150, 0.04);
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* =========================
+           SUBJECTS
+        ========================= */
+
+        .section-title {
+            font-size: 21px;
+            margin-bottom: 22px;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(160px, 1fr));
+            gap: 18px;
+            margin-bottom: 38px;
+        }
+
+        .subject-card {
+            min-height: 235px;
+            background: #ffffff;
+            border: 1px solid #e3eaf3;
+            border-radius: 17px;
+            padding: 22px;
+            cursor: pointer;
+            position: relative;
+            transition: 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-4px);
+            border-color: #bdd6f7;
+            box-shadow: 0 10px 25px rgba(30, 90, 170, 0.08);
+        }
+
+        .subject-card.selected {
+            border-bottom: 4px solid #1268dc;
+        }
+
+        .subject-icon {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            object-fit: contain;
+            margin-bottom: 18px;
+        }
+
+        .subject-name {
+            font-size: 18px;
+            line-height: 1.25;
+            margin-bottom: auto;
+        }
+
+        .subject-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .topic-count {
+            color: #68768d;
+            font-size: 14px;
+        }
+
+        .card-arrow {
+            color: #1169dc;
+            font-size: 27px;
+        }
+
+        /* =========================
+           CONTINUE
+        ========================= */
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .see-all {
+            color: #1268d8;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .continue-card {
+            background: #f3f8ff;
+            border: 1px solid #dce9f8;
+            border-radius: 17px;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 38px;
+        }
+
+        .continue-icon {
+            width: 76px;
+            height: 76px;
+            object-fit: contain;
+        }
+
+        .continue-info {
+            flex: 1;
+        }
+
+        .continue-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .continue-title h3 {
+            font-size: 18px;
+        }
+
+        .status {
+            background: #e5f1ff;
+            color: #3678c9;
+            font-size: 12px;
+            padding: 7px 12px;
+            border-radius: 7px;
+        }
+
+        .progress-area {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .progress {
+            height: 8px;
+            background: #dce8f7;
+            border-radius: 10px;
+            width: 55%;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 60%;
+            background: #176bdc;
+            border-radius: 10px;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            color: #52637c;
+        }
+
+        .continue-button {
+            border: none;
+            background: #1468d9;
+            color: #ffffff;
+            padding: 15px 43px;
+            border-radius: 9px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .continue-button:hover {
+            background: #095ac5;
+        }
+
+        /* =========================
+           RECOMMENDATIONS
+        ========================= */
+
+        .recommendations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .recommendation {
+            border: 1px solid #e2e9f2;
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .recommendation:hover {
+            box-shadow: 0 8px 25px rgba(20, 80, 150, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .recommendation-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .recommendation-icon {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .recommendation h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .recommendation p {
+            color: #6c788c;
+            font-size: 13px;
+        }
+
+        .recommendation-bottom {
+            margin-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            color: #617087;
+            font-size: 13px;
+        }
+
+        /* =========================
+           SUBJECT DETAIL
+        ========================= */
+
+        .back-button {
+            border: none;
+            background: transparent;
+            color: #1468d9;
+            font-size: 15px;
+            cursor: pointer;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .detail-icon {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+        }
+
+        .detail-header h2 {
+            font-size: 30px;
+            margin-bottom: 7px;
+        }
+
+        .detail-header p {
+            color: #68768b;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .topic-card {
+            background: #ffffff;
+            border: 1px solid #e2e9f2;
+            border-radius: 15px;
+            padding: 22px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .topic-card:hover {
+            border-color: #8bbaf0;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 100, 190, 0.07);
+        }
+
+        .topic-number {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eaf3ff;
+            color: #176bdc;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .topic-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .topic-card p {
+            color: #718097;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           TOPIC VIEW
+        ========================= */
+
+        .topic-view {
+            display: none;
+        }
+
+        .topic-view.active {
+            display: block;
+        }
+
+        .lesson-box {
+            background: #f5f9ff;
+            border: 1px solid #dfebfa;
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 25px;
+        }
+
+        .lesson-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .lesson-box p {
+            color: #66758c;
+            line-height: 1.7;
+        }
+
+        .lesson-actions {
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .lesson-button {
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid #d4e0ef;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .lesson-button.primary {
+            background: #1268d9;
+            color: #ffffff;
+            border-color: #1268d9;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1200px) {
+            .subjects {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .recommendations {
+                grid-template-columns: 1fr;
+            }
+
+            .topics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .sidebar {
+                width: 80px;
+                padding: 20px 10px;
+            }
+
+            .logo {
+                width: 55px;
+            }
+
+            .menu-item span {
+                display: none;
+            }
+
+            .menu-item {
+                justify-content: center;
+            }
+
+            .help-box {
+                display: none;
+            }
+
+            .main {
+                margin-left: 95px;
+                width: calc(100% - 95px);
+            }
+
+            .subjects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .continue-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .progress-area {
+                width: 100%;
+            }
+
+            .progress {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main {
+                padding: 20px 12px;
+            }
+
+            .content {
+                padding: 18px;
+            }
+
+            .header-left h1 {
+                font-size: 28px;
+            }
+
+            .subjects,
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-right {
+                gap: 8px;
+            }
+
+            .profile-image {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+        <aside class="smart-sidebar">
+
+            <div class="brand-block">
+
+                <div class="brand-mark-wrap">
+                    <img class="brand-mark" src="img/logo_inicial.jpeg" alt="Logo Smart Path">
+                </div>
+
+            </div>
+
+            <nav class="side-nav">
+
+                <button class="nav-item is-active" type="button" onclick="window.location.href='pagina_inicial.html'">
+                    <span>
+                        <img src="img/botao-de-inicio.png" alt="Ícone de início" class="icones_pagina_inicial">
+                    </span>
+                    <span>Início</span>
+                </button>
+
+                <button class="nav-item" type="button" onclick="window.location.href='estudos.html'">
+                    <span>
+                        <img src="img/abra-o-livro.png" alt="Ícone de estudos" class="icones_pagina_inicial">
+                    </span>
+                    <span>Estudos</span>
+                </button>
+
+                <button class="nav-item" type="button" onclick="window.location.href='trilhas.html'">
+                    <span>
+                        <img src="img/maneira.png" alt="Ícone de trilha" class="icones_pagina_inicial">
+                    </span>
+                    <span>Trilhas</span>
+                </button>
+
+                <button class="nav-item" type="button" onclick="window.location.href='simulados.html'">
+                    <span>
+                        <img src="img/confirme.png" alt="Ícone de simulados" class="icones_pagina_inicial">
+                    </span>
+                    <span>Simulados</span>
+                </button>
+
+                <button class="nav-item" type="button" onclick="window.location.href='desempenho.html'">
+                    <span>
+                        <img src="img/grafico.png" alt="Ícone de gráfico" class="icones_pagina_inicial">
+                    </span>
+                    <span>Desempenho</span>
+                </button>
+
+                <button class="nav-item" type="button" onclick="window.location.href='perfil.html'">
+                    <span>
+                        <img src="img/perfil-de-usuario.png" alt="Ícone de perfil" class="icones_pagina_inicial">
+                    </span>
+                    <span>Perfil</span>
+                </button>
+
+            </nav>
+        </aside>
+
+
+        <!-- =========================
+         MAIN
+    ========================== -->
+
+        <main class="main">
+
+            <header class="header">
+
+                <div class="header-left">
+
+                    <h1 id="pageTitle">
+                        Estudos
+                    </h1>
+
+                    <p id="pageSubtitle">
+                        Continue aprendendo e evolua todos os dias.
+                    </p>
+
+                </div>
+
+                <div class="header-right">
+
+                    <button class="notification">
+                        <img src="assets/icons/notification.png" alt="Notificações">
+                    </button>
+
+                    <img src="assets/images/profile.png" class="profile-image" alt="Perfil">
+
+                </div>
+
+            </header>
+
+
+            <section class="content">
+
+                <!-- ===================================
+                 PÁGINA PRINCIPAL DE ESTUDOS
+            ==================================== -->
+
+                <div id="studiesPage" class="page active">
+
+                    <h2 class="section-title">
+                        O que você quer estudar hoje?
+                    </h2>
+
+
+                    <!-- MATÉRIAS -->
+
+                    <div class="subjects">
+
+                        <div class="subject-card selected" onclick="openSubject('linguagens')">
+
+                            <img src="assets/subjects/linguagens.png" class="subject-icon" alt="Linguagens">
+
+                            <h3 class="subject-name">
+                                Linguagens<br>
+                                e Códigos
+                            </h3>
+
+                            <div class="subject-bottom">
+
+                                <span class="topic-count">
+                                    5 tópicos
+                                </span>
+
+                                <span class="card-arrow">
+                                    ›
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="subject-card" onclick="openSubject('natureza')">
+
+                            <img src="assets/subjects/natureza.png" class="subject-icon" alt="Ciências da Natureza">
+
+                            <h3 class="subject-name">
+                                Ciências da<br>
+                                Natureza
+                            </h3>
+
+                            <div class="subject-bottom">
+
+                                <span class="topic-count">
+                                    6 tópicos
+                                </span>
+
+                                <span class="card-arrow">
+                                    ›
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="subject-card" onclick="openSubject('humanas')">
+
+                            <img src="assets/subjects/humanas.png" class="subject-icon" alt="Ciências Humanas">
+
+                            <h3 class="subject-name">
+                                Ciências<br>
+                                Humanas
+                            </h3>
+
+                            <div class="subject-bottom">
+
+                                <span class="topic-count">
+                                    6 tópicos
+                                </span>
+
+                                <span class="card-arrow">
+                                    ›
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="subject-card" onclick="openSubject('matematica')">
+
+                            <img src="assets/subjects/matematica.png" class="subject-icon" alt="Matemática">
+
+                            <h3 class="subject-name">
+                                Matemática
+                            </h3>
+
+                            <div class="subject-bottom">
+
+                                <span class="topic-count">
+                                    7 tópicos
+                                </span>
+
+                                <span class="card-arrow">
+                                    ›
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="subject-card" onclick="openSubject('redacao')">
+
+                            <img src="assets/subjects/redacao.png" class="subject-icon" alt="Redação">
+
+                            <h3 class="subject-name">
+                                Redação
+                            </h3>
+
+                            <div class="subject-bottom">
+
+                                <span class="topic-count">
+                                    3 tópicos
+                                </span>
+
+                                <span class="card-arrow">
+                                    ›
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTINUE -->
+
+                    <div class="section-header">
+
+                        <h2 class="section-title">
+                            Continue de onde parou
+                        </h2>
+
+                        <button class="see-all">
+                            Ver todos
+                        </button>
+
+                    </div>
+
+
+                    <div class="continue-card">
+
+                        <img src="assets/subjects/linguagens.png" class="continue-icon" alt="">
+
+                        <div class="continue-info">
+
+                            <div class="continue-title">
+
+                                <h3>
+                                    Interpretação de texto
+                                </h3>
+
+                                <span class="status">
+                                    Em andamento
+                                </span>
+
+                            </div>
+
+                            <div class="progress-area">
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 60%"></div>
+                                </div>
+
+                                <span class="progress-text">
+                                    60% concluído
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <button class="continue-button" onclick="openTopic('Interpretação de texto')">
+                            Continuar
+                        </button>
+
+                    </div>
+
+
+                    <!-- RECOMENDADOS -->
+
+                    <div class="section-header">
+
+                        <h2 class="section-title">
+                            Recomendados para você
+                        </h2>
+
+                        <button class="see-all">
+                            Ver todos
+                        </button>
+
+                    </div>
+
+
+                    <div class="recommendations">
+
+                        <div class="recommendation" onclick="openTopic('Fotossíntese')">
+
+                            <div class="recommendation-top">
+
+                                <img src="assets/subjects/natureza.png" class="recommendation-icon" alt="">
+
+                                <div>
+                                    <h3>Fotossíntese</h3>
+                                    <p>Ciências da Natureza</p>
+                                </div>
+
+                            </div>
+
+                            <div class="recommendation-bottom">
+                                <span>◷ 15 min</span>
+                                <span>♡</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="recommendation" onclick="openTopic('Equações do 2º grau')">
+
+                            <div class="recommendation-top">
+
+                                <img src="assets/subjects/matematica.png" class="recommendation-icon" alt="">
+
+                                <div>
+                                    <h3>Equações do 2º grau</h3>
+                                    <p>Matemática</p>
+                                </div>
+
+                            </div>
+
+                            <div class="recommendation-bottom">
+                                <span>◷ 20 min</span>
+                                <span>♡</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="recommendation" onclick="openTopic('Figuras de linguagem')">
+
+                            <div class="recommendation-top">
+
+                                <img src="assets/subjects/linguagens.png" class="recommendation-icon" alt="">
+
+                                <div>
+                                    <h3>Figuras de linguagem</h3>
+                                    <p>Linguagens e Códigos</p>
+                                </div>
+
+                            </div>
+
+                            <div class="recommendation-bottom">
+                                <span>◷ 18 min</span>
+                                <span>♡</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================
+                 PÁGINA DA MATÉRIA
+            ==================================== -->
+
+                <div id="subjectPage" class="page">
+
+                    <button class="back-button" onclick="backToStudies()">
+                        ← Voltar para Estudos
+                    </button>
+
+
+                    <div class="detail-header">
+
+                        <img id="detailIcon" class="detail-icon" src="" alt="">
+
+                        <div>
+
+                            <h2 id="detailTitle">
+                                Matemática
+                            </h2>
+
+                            <p id="detailDescription">
+                                Escolha um tópico para começar seus estudos.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="topicsGrid" class="topics-grid">
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================
+                 PÁGINA DA AULA
+            ==================================== -->
+
+                <div id="topicPage" class="page">
+
+                    <button class="back-button" onclick="backToSubject()">
+                        ← Voltar para matéria
+                    </button>
+
+
+                    <div class="detail-header">
+
+                        <img id="topicIcon" class="detail-icon" src="assets/icons/book.png" alt="">
+
+                        <div>
+
+                            <h2 id="topicTitle">
+                                Tópico
+                            </h2>
+
+                            <p>
+                                Prepare-se para aprender este conteúdo.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="lesson-box">
+
+                        <h3>
+                            Conteúdo de estudo
+                        </h3>
+
+                        <p id="topicDescription">
+                            Aqui ficará o conteúdo completo da aula.
+                            Você poderá posteriormente substituir esta
+                            área por vídeos, textos, PDFs, exercícios,
+                            questões do ENEM e outros materiais.
+                        </p>
+
+
+                        <div class="lesson-actions">
+
+                            <button class="lesson-button">
+                                Ver material
+                            </button>
+
+                            <button class="lesson-button primary">
+                                Começar exercícios
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script>
+
+        /* ==========================================
+           DADOS DAS MATÉRIAS
+        ========================================== */
+
+        const subjects = {
+
+            linguagens: {
+
+                title: "Linguagens e Códigos",
+
+                description:
+                    "Estude interpretação, literatura, gramática e comunicação.",
+
+                icon:
+                    "assets/subjects/linguagens.png",
+
+                topics: [
+
+                    {
+                        title: "Interpretação de texto",
+                        description:
+                            "Aprenda estratégias para compreender textos e identificar informações importantes."
+                    },
+
+                    {
+                        title: "Figuras de linguagem",
+                        description:
+                            "Conheça metáfora, comparação, ironia, hipérbole e outras figuras."
+                    },
+
+                    {
+                        title: "Gramática",
+                        description:
+                            "Estude os principais conteúdos gramaticais cobrados nas provas."
+                    },
+
+                    {
+                        title: "Literatura",
+                        description:
+                            "Conheça escolas literárias, autores e principais características."
+                    },
+
+                    {
+                        title: "Gêneros textuais",
+                        description:
+                            "Aprenda a reconhecer diferentes gêneros e suas características."
+                    }
+
+                ]
+
+            },
+
+
+            natureza: {
+
+                title: "Ciências da Natureza",
+
+                description:
+                    "Biologia, Física e Química para sua preparação.",
+
+                icon:
+                    "assets/subjects/natureza.png",
+
+                topics: [
+
+                    {
+                        title: "Fotossíntese",
+                        description:
+                            "Entenda como as plantas produzem energia e os principais processos envolvidos."
+                    },
+
+                    {
+                        title: "Ecologia",
+                        description:
+                            "Estude relações ecológicas, cadeias alimentares e ciclos."
+                    },
+
+                    {
+                        title: "Genética",
+                        description:
+                            "Aprenda os fundamentos da hereditariedade e genética."
+                    },
+
+                    {
+                        title: "Química",
+                        description:
+                            "Estude matéria, reações químicas e propriedades."
+                    },
+
+                    {
+                        title: "Física",
+                        description:
+                            "Movimento, energia, força e outros conceitos fundamentais."
+                    },
+
+                    {
+                        title: "Meio ambiente",
+                        description:
+                            "Estude impactos ambientais e sustentabilidade."
+                    }
+
+                ]
+
+            },
+
+
+            humanas: {
+
+                title: "Ciências Humanas",
+
+                description:
+                    "História, Geografia, Filosofia e Sociologia.",
+
+                icon:
+                    "assets/subjects/humanas.png",
+
+                topics: [
+
+                    {
+                        title: "História do Brasil",
+                        description:
+                            "Principais acontecimentos e períodos históricos brasileiros."
+                    },
+
+                    {
+                        title: "História Geral",
+                        description:
+                            "Revoluções, guerras e acontecimentos que marcaram a humanidade."
+                    },
+
+                    {
+                        title: "Geografia",
+                        description:
+                            "Espaço geográfico, população, economia e globalização."
+                    },
+
+                    {
+                        title: "Filosofia",
+                        description:
+                            "Principais filósofos, pensamentos e conceitos."
+                    },
+
+                    {
+                        title: "Sociologia",
+                        description:
+                            "Sociedade, cultura, política e relações sociais."
+                    },
+
+                    {
+                        title: "Atualidades",
+                        description:
+                            "Temas contemporâneos importantes para as provas."
+                    }
+
+                ]
+
+            },
+
+
+            matematica: {
+
+                title: "Matemática",
+
+                description:
+                    "Resolva problemas e domine os principais conteúdos matemáticos.",
+
+                icon:
+                    "assets/subjects/matematica.png",
+
+                topics: [
+
+                    {
+                        title: "Equações do 2º grau",
+                        description:
+                            "Aprenda a resolver equações quadráticas e interpretar seus resultados."
+                    },
+
+                    {
+                        title: "Funções",
+                        description:
+                            "Estude funções de primeiro e segundo grau."
+                    },
+
+                    {
+                        title: "Porcentagem",
+                        description:
+                            "Resolva problemas envolvendo porcentagem e variação percentual."
+                    },
+
+                    {
+                        title: "Geometria",
+                        description:
+                            "Áreas, perímetros, volumes e propriedades geométricas."
+                    },
+
+                    {
+                        title: "Probabilidade",
+                        description:
+                            "Aprenda os principais conceitos e métodos de probabilidade."
+                    },
+
+                    {
+                        title: "Estatística",
+                        description:
+                            "Média, mediana, moda e interpretação de gráficos."
+                    },
+
+                    {
+                        title: "Razão e proporção",
+                        description:
+                            "Resolva problemas envolvendo proporções e grandezas."
+                    }
+
+                ]
+
+            },
+
+
+            redacao: {
+
+                title: "Redação",
+
+                description:
+                    "Aprenda a construir uma redação forte e alcançar uma ótima nota.",
+
+                icon:
+                    "assets/subjects/redacao.png",
+
+                topics: [
+
+                    {
+                        title: "Estrutura da redação",
+                        description:
+                            "Aprenda introdução, desenvolvimento e conclusão."
+                    },
+
+                    {
+                        title: "Argumentação",
+                        description:
+                            "Desenvolva argumentos claros, consistentes e relevantes."
+                    },
+
+                    {
+                        title: "Competências do ENEM",
+                        description:
+                            "Entenda como cada competência é avaliada."
+                    }
+
+                ]
+
+            }
+
+        };
+
+
+        /* ==========================================
+           ELEMENTOS
+        ========================================== */
+
+        const studiesPage =
+            document.getElementById("studiesPage");
+
+        const subjectPage =
+            document.getElementById("subjectPage");
+
+        const topicPage =
+            document.getElementById("topicPage");
+
+        const pageTitle =
+            document.getElementById("pageTitle");
+
+        const pageSubtitle =
+            document.getElementById("pageSubtitle");
+
+        const detailTitle =
+            document.getElementById("detailTitle");
+
+        const detailDescription =
+            document.getElementById("detailDescription");
+
+        const detailIcon =
+            document.getElementById("detailIcon");
+
+        const topicsGrid =
+            document.getElementById("topicsGrid");
+
+        const topicTitle =
+            document.getElementById("topicTitle");
+
+        const topicDescription =
+            document.getElementById("topicDescription");
+
+
+        let currentSubject = null;
+
+
+        /* ==========================================
+           ABRIR MATÉRIA
+        ========================================== */
+
+        function openSubject(subjectKey) {
+
+            const subject = subjects[subjectKey];
+
+            if (!subject) return;
+
+            currentSubject = subjectKey;
+
+            studiesPage.classList.remove("active");
+            topicPage.classList.remove("active");
+            subjectPage.classList.add("active");
+
+            pageTitle.textContent = subject.title;
+
+            pageSubtitle.textContent =
+                "Escolha um tópico para começar seus estudos.";
+
+            detailTitle.textContent =
+                subject.title;
+
+            detailDescription.textContent =
+                subject.description;
+
+            detailIcon.src =
+                subject.icon;
+
+            topicsGrid.innerHTML = "";
+
+            subject.topics.forEach((topic, index) => {
+
+                const card =
+                    document.createElement("div");
+
+                card.className = "topic-card";
+
+                card.onclick = () =>
+                    openTopic(topic.title, topic.description);
+
+                card.innerHTML = `
+
+                <div class="topic-number">
+                    ${index + 1}
+                </div>
+
+                <h3>
+                    ${topic.title}
+                </h3>
+
+                <p>
+                    ${topic.description}
+                </p>
+
+            `;
+
+                topicsGrid.appendChild(card);
+
+            });
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* ==========================================
+           ABRIR TÓPICO
+        ========================================== */
+
+        function openTopic(title, description = "") {
+
+            subjectPage.classList.remove("active");
+            studiesPage.classList.remove("active");
+            topicPage.classList.add("active");
+
+            topicTitle.textContent =
+                title;
+
+            topicDescription.textContent =
+                description ||
+                "Aqui ficará o conteúdo completo desta aula.";
+
+            pageTitle.textContent =
+                title;
+
+            pageSubtitle.textContent =
+                "Continue sua jornada de aprendizagem.";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* ==========================================
+           VOLTAR PARA ESTUDOS
+        ========================================== */
+
+        function backToStudies() {
+
+            subjectPage.classList.remove("active");
+            topicPage.classList.remove("active");
+            studiesPage.classList.add("active");
+
+            pageTitle.textContent =
+                "Estudos";
+
+            pageSubtitle.textContent =
+                "Continue aprendendo e evolua todos os dias.";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* ==========================================
+           VOLTAR PARA MATÉRIA
+        ========================================== */
+
+        function backToSubject() {
+
+            topicPage.classList.remove("active");
+            studiesPage.classList.remove("active");
+            subjectPage.classList.add("active");
+
+            const subject =
+                subjects[currentSubject];
+
+            pageTitle.textContent =
+                subject.title;
+
+            pageSubtitle.textContent =
+                "Escolha um tópico para começar seus estudos.";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
