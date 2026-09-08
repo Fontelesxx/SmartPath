@@ -1,14 +1,19 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Obtém o nome do arquivo atual da URL (ex: "estudos.html")
+  const paginaAtual = window.location.pathname.split("/").pop();
 
-    const paginaAtual = window.location.pathname.split('/').pop() || 'index.html';
+  // Seleciona todos os botões da navegação
+  const botoesNav = document.querySelectorAll(".nav-item");
 
-    const navItems = document.querySelectorAll('.nav-item');
-
-    navItems.forEach(item => {
-        const link = item.getAttribute('onclick');
-
-        if (link && link.includes(paginaAtual)) {
-            item.classList.add('is-active');
-        } else {
-            item.classList.remove('is-active');
-        }
-    });
+  botoesNav.forEach(botao => {
+    // Pega o destino do link dentro do atributo onclick
+    const onclickAtributo = botao.getAttribute("onclick") || "";
+    
+    // Verifica se o nome da página atual está contido no link de redirecionamento
+    if (onclickAtributo.includes(paginaAtual)) {
+      botao.classList.add("is-active");
+    } else {
+      botao.classList.remove("is-active");
+    }
+  });
+});
