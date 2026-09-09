@@ -141,3 +141,5 @@ function entrar(event) {
     alert('Email ou senha incorretos!');
   }
 }
+
+new window.VLibras.Widget('https://vlibras.gov.br/app');
