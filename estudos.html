@@ -460,6 +460,107 @@
         }
 
         /* =========================
+           CONTEÚDO DA AULA
+        ========================= */
+
+        .lesson-intro {
+            margin-bottom: 22px;
+        }
+
+        .content-section {
+            margin-top: 18px;
+            padding: 22px;
+            background: #ffffff;
+            border: 1px solid #e1ebf7;
+            border-radius: 13px;
+        }
+
+        .content-section h4 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .content-section ul {
+            padding-left: 19px;
+            color: #50617a;
+            line-height: 1.7;
+        }
+
+        .content-section li + li {
+            margin-top: 5px;
+        }
+
+        .study-example {
+            margin-top: 14px;
+            padding: 14px 16px;
+            border-left: 3px solid #176bdc;
+            border-radius: 0 8px 8px 0;
+            background: #f3f8ff;
+            color: #40516a;
+            line-height: 1.6;
+        }
+
+        .video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 3px;
+            padding: 11px 15px;
+            border-radius: 8px;
+            background: #eaf3ff;
+            color: #1268d9;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .questions-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 15px;
+        }
+
+        .question-card {
+            padding: 18px;
+            border: 1px solid #e1ebf7;
+            border-radius: 12px;
+            background: #ffffff;
+        }
+
+        .question-card legend {
+            padding: 0;
+            font-weight: 700;
+            line-height: 1.45;
+        }
+
+        .answer-option {
+            display: block;
+            margin-top: 11px;
+            color: #50617a;
+            cursor: pointer;
+        }
+
+        .answer-option input {
+            margin-right: 8px;
+        }
+
+        .answer-feedback {
+            display: none;
+            margin-top: 13px;
+            padding: 11px 13px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .answer-feedback.is-visible { display: block; }
+        .answer-feedback.is-correct { background: #ecf8f1; color: #26724b; }
+        .answer-feedback.is-wrong { background: #fff3f2; color: #9b443d; }
+
+        .questions-action {
+            margin-top: 18px;
+        }
+
+        /* =========================
            RESPONSIVE
         ========================= */
 
@@ -968,7 +1069,7 @@
                  PÁGINA DA AULA
             ==================================== -->
 
-                <div id="topicPage" class="page">
+            <div id="topicPage" class="page">
 
                     <button class="back-button" onclick="backToSubject()">
                         ← Voltar para matéria
@@ -994,33 +1095,13 @@
                     </div>
 
 
-                    <div class="lesson-box">
-
-                        <h3>
-                            Conteúdo de estudo
-                        </h3>
-
-                        <p id="topicDescription">
-                            Aqui ficará o conteúdo completo da aula.
-                            Você poderá posteriormente substituir esta
-                            área por vídeos, textos, PDFs, exercícios,
-                            questões do ENEM e outros materiais.
-                        </p>
-
-
-                        <div class="lesson-actions">
-
-                            <button class="lesson-button">
-                                Ver material
-                            </button>
-
-                            <button class="lesson-button primary">
-                                Começar exercícios
-                            </button>
-
-                        </div>
-
+                <div class="lesson-box">
+                    <div id="lessonContent">
+                        <h3>Conteúdo de estudo</h3>
+                        <p id="topicDescription">Aqui ficará o conteúdo completo da aula.</p>
                     </div>
+
+                </div>
 
                 </div>
 
@@ -1295,6 +1376,351 @@
 
         };
 
+        /* Conteúdo da apostila de Redação ENEM */
+        const redacaoLessons = {
+            "Estrutura da redação": {
+                video: "https://www.youtube.com/watch?v=CjUCTZstyK8",
+                material: `
+                    <section class="content-section">
+                        <h4>Como organizar seu texto</h4>
+                        <ul>
+                            <li><strong>Introdução:</strong> contextualize o tema e apresente uma tese com dois argumentos.</li>
+                            <li><strong>Desenvolvimento 1 e 2:</strong> explique cada argumento, use repertório e mostre sua relação com o problema.</li>
+                            <li><strong>Conclusão:</strong> retome a discussão e proponha uma intervenção completa.</li>
+                        </ul>
+                        <p class="study-example"><strong>Modelo de tese:</strong> “Diante desse cenário, percebe-se que [problema]. Assim, é necessário analisar [argumento 1] e [argumento 2].”</p>
+                    </section>
+                    <section class="content-section">
+                        <h4>Para escrever com clareza</h4>
+                        <ul>
+                            <li>Use conectivos como “Em primeiro plano”, “Além disso” e “Portanto”.</li>
+                            <li>Evite fugir do tema, repetir a mesma ideia e produzir uma conclusão vaga.</li>
+                            <li>Na proposta, informe agente, ação, meio, finalidade e detalhamento.</li>
+                        </ul>
+                    </section>`,
+                questions: [
+                    ["Quais são as quatro partes fundamentais de uma redação ENEM?", ["Introdução, dois desenvolvimentos e conclusão", "Título, resumo, desenvolvimento e epílogo", "Tema, opinião, citação e conclusão"], 0, "A estrutura básica é introdução, desenvolvimento 1, desenvolvimento 2 e conclusão."],
+                    ["Qual é a função principal da tese?", ["Apresentar o posicionamento que será defendido", "Repetir o tema com outras palavras", "Encerrar a redação"], 0, "A tese mostra ao leitor qual ponto de vista será argumentado."],
+                    ["O que fortalece um parágrafo de desenvolvimento?", ["Argumento, explicação, repertório e relação com o tema", "Apenas uma opinião pessoal", "Uma lista de conectivos"], 0, "O argumento precisa ser desenvolvido e comprovado, não só afirmado."],
+                    ["Qual é o problema em “O governo precisa melhorar a situação”?", ["A proposta é vaga e sem detalhamento", "A frase é longa demais", "Ela usa linguagem formal"], 0, "Faltam o agente específico, a ação, o meio e a finalidade."],
+                    ["Qual conectivo é adequado para iniciar a conclusão?", ["Portanto", "Por exemplo", "Embora"], 0, "“Portanto” indica conclusão e consequência da argumentação." ]
+                ]
+            },
+            "Argumentação": {
+                video: "https://www.youtube.com/watch?v=nEImAvz96EI",
+                material: `
+                    <section class="content-section">
+                        <h4>O que torna um argumento consistente</h4>
+                        <ul>
+                            <li>Explique a causa ou consequência do problema, quem é afetado e por que ele persiste.</li>
+                            <li>Use um exemplo ou repertório que comprove a ideia e dialogue com a tese.</li>
+                            <li>Evite afirmações genéricas: desenvolva o raciocínio antes de concluir.</li>
+                        </ul>
+                    </section>
+                    <section class="content-section">
+                        <h4>Tipos de argumento</h4>
+                        <ul>
+                            <li><strong>Causa:</strong> explica a origem do problema.</li>
+                            <li><strong>Consequência:</strong> evidencia seus impactos.</li>
+                            <li><strong>Histórico, legal e sociocultural:</strong> conectam a discussão a fatos, leis, obras ou autores pertinentes.</li>
+                        </ul>
+                        <p class="study-example"><strong>Exemplo:</strong> O uso desregulado das redes sociais pode prejudicar a saúde mental de adolescentes, pois a exposição a padrões irreais favorece ansiedade e inadequação.</p>
+                    </section>`,
+                questions: [
+                    ["Qual é a diferença entre opinião e argumento?", ["O argumento explica e sustenta um ponto de vista", "Não existe diferença", "A opinião sempre usa dados"], 0, "A opinião afirma uma ideia; o argumento a desenvolve com lógica, exemplos ou repertório."],
+                    ["Ao citar uma lei para apoiar uma ideia, você usa qual tipo de argumento?", ["Legal", "De consequência", "De comparação"], 0, "Leis, direitos e deveres sociais formam um argumento legal."],
+                    ["Qual frase apresenta um argumento de causa?", ["A desinformação é favorecida pela falta de educação midiática", "A desinformação é um problema atual", "A desinformação deve ser combatida"], 0, "Ela explica uma origem possível para o problema."],
+                    ["O que define um repertório produtivo?", ["Ter relação real com o argumento", "Ser uma citação muito famosa", "Ser longo e difícil"], 0, "Repertório só ajuda quando comprova e aprofunda a discussão."],
+                    ["Qual opção é mais desenvolvida?", ["A violência urbana limita a circulação e amplia a insegurança coletiva", "A violência urbana é ruim", "A violência existe em muitas cidades"], 0, "A primeira explica uma consequência e mostra o impacto social." ]
+                ]
+            },
+            "Competências do ENEM": {
+                video: "https://www.youtube.com/watch?v=AMbFB_cFYek&list=PLVyIxkvuIqxoySveaq4KmVHtZoWozyyzM",
+                material: `
+                    <section class="content-section">
+                        <h4>As cinco competências</h4>
+                        <ul>
+                            <li><strong>C1:</strong> domínio da norma-padrão.</li>
+                            <li><strong>C2:</strong> compreensão do tema e repertório pertinente.</li>
+                            <li><strong>C3:</strong> seleção e organização dos argumentos.</li>
+                            <li><strong>C4:</strong> coesão textual e uso de conectivos.</li>
+                            <li><strong>C5:</strong> proposta de intervenção detalhada e respeitosa aos direitos humanos.</li>
+                        </ul>
+                    </section>
+                    <section class="content-section">
+                        <h4>Checklist antes de entregar</h4>
+                        <ul>
+                            <li>Confira se o texto responde ao recorte específico do tema.</li>
+                            <li>Revise concordância, pontuação, repetições e conectivos.</li>
+                            <li>Na conclusão, explicite: quem fará, o que fará, como, para quê e com qual detalhe.</li>
+                        </ul>
+                        <p class="study-example"><strong>Exemplo de intervenção:</strong> o Ministério da Educação deve promover oficinas de educação midiática nas escolas, por meio de materiais didáticos sobre checagem, a fim de reduzir a desinformação.</p>
+                    </section>`,
+                questions: [
+                    ["Qual competência avalia o domínio da norma-padrão?", ["Competência 1", "Competência 3", "Competência 5"], 0, "A competência 1 avalia ortografia, pontuação, concordância e escolha vocabular."],
+                    ["O que pode ocorrer ao ignorar o recorte específico do tema?", ["Fuga parcial ou total ao tema", "Aumento da nota na C4", "Apenas perda de conectivos"], 0, "A compreensão precisa tratar exatamente do que a proposta pede."],
+                    ["Qual competência avalia a organização lógica dos argumentos?", ["Competência 3", "Competência 2", "Competência 4"], 0, "A C3 verifica a defesa organizada e coerente da tese."],
+                    ["Qual elemento responde à pergunta “Como a ação acontecerá?”", ["Meio", "Agente", "Finalidade"], 0, "O meio descreve o modo ou instrumento usado para realizar a ação."],
+                    ["Qual conectivo pode iniciar o segundo desenvolvimento?", ["Além disso", "Portanto", "Em síntese"], 0, "“Além disso” ajuda a introduzir um argumento complementar." ]
+                ]
+            }
+        };
+
+        /* Conteúdo da apostila de Português para o ENEM */
+        const portuguesLessons = {
+            "Interpretação de texto": {
+                videos: [
+                    ["Interpretação de Texto para o ENEM", "https://www.youtube.com/watch?v=qvxmR3XaljE"],
+                    ["Como Interpretar Qualquer Texto no ENEM", "https://www.youtube.com/watch?v=rf1lg2foSG4&t=90s"]
+                ],
+                material: `
+                    <section class="content-section"><h4>Coesão e coerência</h4><ul>
+                        <li><strong>Coesão:</strong> cria ligações entre palavras, frases e parágrafos por pronomes, sinônimos, elipses e conectivos.</li>
+                        <li><strong>Anáfora:</strong> retoma algo já dito; <strong>catáfora:</strong> antecipa uma informação que virá.</li>
+                        <li><strong>Coerência:</strong> mantém a lógica do texto, sem contradições, repetições vazias ou ideias fora do tema.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Intencionalidade</h4><ul>
+                        <li>Todo texto busca informar, persuadir, emocionar, entreter ou criticar.</li>
+                        <li>Observe contexto, escolha de palavras, ironia e elementos verbais e não verbais.</li>
+                        <li>Ambiguidade pode ser um problema de construção ou um recurso intencional de duplo sentido.</li>
+                    </ul><p class="study-example"><strong>Conectivos:</strong> “porque” indica causa; “embora”, concessão; “porém”, oposição; “portanto”, conclusão.</p></section>`,
+                questions: [
+                    ["O conectivo “conquanto” estabelece, em geral, qual relação?", ["Concessão", "Causa", "Conclusão", "Explicação"], 0, "“Conquanto” introduz uma ressalva que não anula a ideia principal."],
+                    ["A frase “O trânsito mata mais que a guerra. Não corra.” busca convencer principalmente por:", ["Uma analogia impactante", "Dados técnicos exatos", "Uma narrativa", "Descrição de danos físicos"], 0, "A comparação intensa com a guerra produz choque e reforça o alerta."],
+                    ["Em “os cidadãos exigem melhorias; o governo, no entanto, corta verbas”, “no entanto” marca:", ["Oposição", "Adição", "Tempo", "Explicação"], 0, "O conectivo contrasta a demanda social com a ação estatal."],
+                    ["Em “sua solidariedade é o combustível do projeto”, “combustível” produz:", ["Uma metáfora que associa energia e motivação", "Uma informação literal", "Uma crítica ao petróleo", "Uma ordem"], 0, "O termo é empregado figuradamente para expressar aquilo que move o projeto."],
+                    ["Um editorial se diferencia de uma notícia porque:", ["Expressa a posição do veículo sobre um tema", "É sempre ficcional", "Não tem opinião", "Usa somente linguagem informal"], 0, "O editorial apresenta formalmente a opinião institucional do meio de comunicação." ]
+                ]
+            },
+            "Figuras de linguagem": {
+                videos: [
+                    ["Figuras de Linguagem mais Cobradas no ENEM", "https://www.youtube.com/watch?v=HALZoxArdfY"],
+                    ["Aprenda Figuras de Linguagem de uma vez", "https://www.youtube.com/watch?v=n0e75nRstcU"]
+                ],
+                material: `
+                    <section class="content-section"><h4>Figuras de palavras e pensamento</h4><ul>
+                        <li><strong>Metáfora:</strong> comparação implícita. <strong>Metonímia:</strong> troca por proximidade, como autor pela obra.</li>
+                        <li><strong>Sinestesia:</strong> mistura sensações. <strong>Antítese:</strong> aproxima opostos; <strong>paradoxo:</strong> une opostos em aparente contradição.</li>
+                        <li><strong>Eufemismo:</strong> suaviza uma expressão; <strong>ironia:</strong> comunica o oposto do que parece dizer.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Figuras de sintaxe</h4><ul>
+                        <li><strong>Hipérbato:</strong> inversão da ordem direta da frase.</li>
+                        <li><strong>Anáfora:</strong> repetição no início de frases ou versos.</li>
+                        <li><strong>Polissíndeto:</strong> repetição de conjunções; <strong>assíndeto:</strong> omissão de conjunções.</li>
+                    </ul><p class="study-example"><strong>Dica:</strong> identifique o efeito de sentido produzido, não apenas o nome da figura.</p></section>`,
+                questions: [
+                    ["Em “mar de morros” e “morros engolem o sol”, aparecem respectivamente:", ["Metáfora e personificação", "Eufemismo e ironia", "Antítese e hipérbole", "Sinestesia e hipérbato"], 0, "“Mar de morros” é metáfora; atribuir a ação de engolir aos morros é personificação."],
+                    ["Qual frase apresenta paradoxo?", ["Para encontrar paz, travou uma guerra íntima", "Cheguei morto de cansaço", "Subiu para cima do palco", "Comprei duas garrafas"], 0, "O paradoxo aproxima ideias opostas em uma mesma formulação."],
+                    ["A repetição de “Quero” no início de versos caracteriza:", ["Anáfora", "Hipérbato", "Assíndeto", "Elipse"], 0, "Anáfora é a repetição intencional no início de frases ou versos."],
+                    ["“Faltou com a verdade” é um caso de:", ["Eufemismo", "Hipérbole", "Ironia", "Metonímia"], 0, "A expressão suaviza a afirmação direta de que alguém mentiu."],
+                    ["“Um grito áspero e avermelhado” exemplifica:", ["Sinestesia", "Antítese", "Prosopopeia", "Catacrese"], 0, "A frase mistura percepções de audição, tato e visão." ]
+                ]
+            },
+            "Gramática": {
+                videos: [
+                    ["Variação Linguística no ENEM", "https://www.youtube.com/watch?v=qBoRdhbMHkQ&t=152"],
+                    ["Gramática Prática para o ENEM", "https://www.youtube.com/watch?v=6B94ECGEQeY&t=235s"]
+                ],
+                material: `
+                    <section class="content-section"><h4>A língua em uso</h4><ul>
+                        <li>A língua é viva e varia conforme região, grupo social, situação e tempo histórico.</li>
+                        <li><strong>Diatópica:</strong> regional; <strong>diastrásica:</strong> social; <strong>diafásica:</strong> situacional; <strong>diacrônica:</strong> histórica.</li>
+                        <li>No ENEM, a questão central é reconhecer a adequação da variedade ao contexto.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Adequação e respeito</h4><ul>
+                        <li>A norma-padrão é esperada em contextos formais, como a redação.</li>
+                        <li>Variedades populares não são “sem regra”: elas têm organização e cumprem função comunicativa.</li>
+                        <li>Preconceito linguístico é a desvalorização de falantes por sua variedade de língua.</li>
+                    </ul></section>`,
+                questions: [
+                    ["“Não dê bobeira” em uma campanha de saúde busca:", ["Aproximar a mensagem do público com linguagem acessível", "Mostrar desconhecimento gramatical", "Criar ironia", "Imitar linguagem erudita"], 0, "O registro coloquial pode tornar a mensagem institucional mais próxima do público."],
+                    ["As variedades populares são legítimas porque:", ["Possuem lógica interna e cumprem a comunicação", "Não têm regras", "São imutáveis", "Devem substituir toda escrita formal"], 0, "Toda variedade linguística é estruturada e adequada a determinados contextos."],
+                    ["“Tchê” e “uai” são exemplos de variação:", ["Diatópica", "Diacrônica", "Diastrásica", "Diafásica"], 0, "São marcas relacionadas a regiões geográficas diferentes."],
+                    ["Pronomes e construções do século XIX em desuso hoje indicam variação:", ["Diacrônica", "Regional", "Técnica", "Coloquial"], 0, "A variação diacrônica ocorre ao longo do tempo histórico."],
+                    ["Usar linguagem mais polida em uma palestra acadêmica exemplifica variação:", ["Diafásica", "Diatópica", "Etária", "Geográfica"], 0, "O falante adequa o registro à situação comunicativa." ]
+                ]
+            },
+            "Literatura": {
+                videos: [
+                    ["Modernismo o que mais cai no ENEM", "https://www.youtube.com/watch?v=9sHW9LKw-Tg"],
+                    ["Revisão Completa de Literatura ENEM", "https://www.youtube.com/watch?v=__XaryBr0Uc"]
+                ],
+                material: `
+                    <section class="content-section"><h4>Modernismo brasileiro</h4><ul>
+                        <li><strong>1ª fase (1922-1930):</strong> ruptura com o academicismo, versos livres, humor e valorização da fala brasileira.</li>
+                        <li><strong>2ª fase (1930-1945):</strong> amadurecimento e crítica social, com destaque para o regionalismo nordestino.</li>
+                        <li><strong>3ª fase (após 1945):</strong> pesquisa de linguagem e aprofundamento psicológico, com Guimarães Rosa e Clarice Lispector.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Realismo e Naturalismo</h4><ul>
+                        <li><strong>Realismo:</strong> análise psicológica, ironia e crítica à burguesia, com Machado de Assis.</li>
+                        <li><strong>Naturalismo:</strong> determinismo e zoomorfismo, como em <em>O Cortiço</em>, de Aluísio Azevedo.</li>
+                        <li>Relacione obras e movimentos ao seu contexto histórico e social.</li>
+                    </ul></section>`,
+                questions: [
+                    ["A Geração de 30 destacou-se por:", ["Denunciar desigualdades sociais do regionalismo nordestino", "Retomar lendas medievais", "Usar linguagem aristocrática", "Exaltar a industrialização sem crítica"], 0, "A segunda fase modernista deu grande espaço aos problemas sociais e regionais."],
+                    ["O zoomorfismo em O Cortiço se relaciona ao:", ["Determinismo naturalista", "Romantismo idealista", "Parnasianismo", "Espiritualismo"], 0, "O Naturalismo tende a explicar o ser humano por meio, raça e momento, aproximando-o do instinto."],
+                    ["A Antropofagia de Oswald de Andrade defendia:", ["Assimilar influências externas e recriá-las nacionalmente", "Rejeitar toda influência externa", "Copiar a Europa", "Isolar o Brasil"], 0, "A proposta era absorver criticamente referências externas e transformá-las."],
+                    ["A narrativa de Clarice Lispector privilegia:", ["A sondagem psicológica e o fluxo de consciência", "Dados estatísticos", "Arquitetura urbana", "Sonetos clássicos"], 0, "A terceira fase modernista explora de forma marcante a interioridade das personagens."],
+                    ["Machado de Assis, no Realismo, criticava sobretudo:", ["A hipocrisia e as falsas aparências da elite", "Heróis medievais", "A floresta amazônica", "Valores monárquicos sem crítica"], 0, "A ironia machadiana expõe egoísmo, interesses e moralismo social." ]
+                ]
+            },
+            "Gêneros textuais": {
+                videos: [
+                    ["Gêneros Textuais no ENEM", "https://www.youtube.com/watch?v=d5ksTAZNJIg"],
+                    ["Tipos e Gêneros Textuais", "https://www.youtube.com/watch?v=Ucjv4LT8CSg"]
+                ],
+                material: `
+                    <section class="content-section"><h4>Tipos textuais</h4><ul>
+                        <li><strong>Dissertativo-argumentativo:</strong> defende uma tese com argumentos.</li>
+                        <li><strong>Narrativo:</strong> apresenta narrador, personagens, tempo, espaço e enredo.</li>
+                        <li><strong>Descritivo:</strong> caracteriza seres, cenários ou objetos.</li>
+                        <li><strong>Injuntivo:</strong> orienta ações, frequentemente com verbos no imperativo.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Gêneros e circulação</h4><ul>
+                        <li>Gêneros são realizações sociais concretas: receita, editorial, meme, infográfico e muitos outros.</li>
+                        <li>Um gênero pode combinar mais de um tipo textual, conforme função, suporte e público.</li>
+                        <li>Memes e infográficos integram linguagem verbal e não verbal para criar sentido rapidamente.</li>
+                    </ul></section>`,
+                questions: [
+                    ["Um passo a passo com verbos no imperativo usa predominantemente a tipologia:", ["Injuntiva", "Narrativa", "Descritiva", "Dissertativa"], 0, "Textos injuntivos orientam o leitor sobre como agir."],
+                    ["Os gêneros textuais são:", ["Realizações sociais da linguagem", "Estruturas fixas e imutáveis", "Apenas textos falados", "Textos sem elementos visuais"], 0, "Eles surgem em práticas sociais e mudam conforme necessidades de comunicação."],
+                    ["Um infográfico tem como função principal:", ["Facilitar a leitura de informações complexas com texto e visual", "Entreter sem dados", "Contar uma ficção", "Vender terras"], 0, "Ele integra recursos visuais e verbais para tornar dados mais compreensíveis."],
+                    ["O meme cria sentido principalmente pela:", ["Intertextualidade entre humor, imagem e texto", "Linguagem exclusivamente acadêmica", "Descrição científica", "Estrutura em versos"], 0, "Memes retomam referências compartilhadas para produzir humor ou crítica."],
+                    ["Um artigo científico que defende uma tese com dados é predominantemente:", ["Dissertativo-argumentativo", "Narrativo", "Injuntivo", "Descritivo poético"], 0, "Ele organiza informações e argumentos para sustentar uma posição." ]
+                ]
+            }
+        };
+
+        /* Conteúdo da apostila de Ciências da Natureza para o ENEM */
+        const naturezaLessons = {
+            "Fotossíntese": {
+                videos: [["Fotossíntese para o ENEM", "https://www.youtube.com/watch?v=SsIFs7xBJ5o&t=57s"]],
+                material: `
+                    <section class="content-section"><h4>Onde e como ocorre</h4><ul>
+                        <li>A <strong>fase clara</strong> acontece nos tilacoides: a luz produz ATP e NADPH.</li>
+                        <li>Na fotólise, a água é quebrada e libera o <strong>oxigênio</strong> para a atmosfera.</li>
+                        <li>O <strong>Ciclo de Calvin</strong> ocorre no estroma e usa ATP, NADPH e CO₂ para formar moléculas orgânicas.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Ponto de compensação fótico</h4><ul>
+                        <li>Abaixo dele, a respiração supera a fotossíntese.</li>
+                        <li>No ponto, as duas taxas se igualam e não há saldo de biomassa.</li>
+                        <li>Acima dele, a planta produz matéria orgânica excedente e cresce.</li>
+                    </ul><p class="study-example"><strong>Atenção ENEM:</strong> o O₂ liberado vem da água; o carbono da glicose vem do CO₂.</p></section>`,
+                questions: [
+                    ["De onde vem o O₂ liberado na fotossíntese?", ["Da fotólise da água", "Do gás carbônico", "Da quebra da glicose", "Do ATP"], 0, "A quebra da água na fase clara libera o oxigênio como subproduto."],
+                    ["A fase clara produz principalmente:", ["ATP e NADPH", "Glicose e O₂", "RuBisCO e CO₂", "Apenas glicose"], 0, "Ela transforma energia luminosa em ATP e NADPH, usados depois no Ciclo de Calvin."],
+                    ["O Ciclo de Calvin ocorre no:", ["Estroma do cloroplasto", "Tilacoide", "Núcleo", "Ribossomo"], 0, "A fase de fixação do carbono ocorre no estroma."],
+                    ["No ponto de compensação fótico:", ["Fotossíntese e respiração têm a mesma taxa", "A planta para de respirar", "A fotossíntese é máxima", "Não há troca gasosa"], 0, "A produção e o consumo de matéria orgânica se equilibram."],
+                    ["O CO₂ é essencial na fotossíntese porque fornece:", ["Carbono para moléculas orgânicas", "Oxigênio livre", "Luz para os tilacoides", "Clorofila"], 0, "O carbono do CO₂ é incorporado na produção de açúcares." ]
+                ]
+            },
+            "Ecologia": {
+                videos: [["Ecologia para o ENEM", "https://www.youtube.com/watch?v=KKELP-3_Dlk"]],
+                material: `
+                    <section class="content-section"><h4>Energia e relações ecológicas</h4><ul>
+                        <li>A energia flui em sentido único e diminui a cada nível trófico; por isso a pirâmide de energia nunca é invertida.</li>
+                        <li>Poluentes persistentes sofrem <strong>magnificação trófica</strong> e se concentram nos predadores do topo.</li>
+                        <li>Habitat é o local onde a espécie vive; nicho ecológico reúne seu papel, hábitos e relações.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Ciclos e sucessão</h4><ul>
+                        <li>Reflorestamento ajuda a retirar CO₂ da atmosfera por meio da fotossíntese.</li>
+                        <li>Bactérias participam do ciclo do nitrogênio, tornando-o aproveitável pelas plantas.</li>
+                        <li>Sucessão primária começa sem solo; a secundária ocorre onde já havia uma comunidade e tende a ser mais rápida.</li>
+                    </ul></section>`,
+                questions: [
+                    ["Por que a pirâmide de energia nunca é invertida?", ["A energia diminui a cada nível trófico", "Produtores não usam energia", "Predadores produzem energia", "Biomassa e energia são iguais"], 0, "Parte da energia é perdida no metabolismo e como calor a cada transferência."],
+                    ["A maior concentração de mercúrio em uma cadeia alimentar tende a ocorrer:", ["No predador de topo", "Nos produtores", "Em todos igualmente", "Apenas em decompositores"], 0, "A magnificação trófica aumenta a concentração de poluentes persistentes nos níveis mais altos."],
+                    ["O nicho ecológico de uma espécie corresponde:", ["Ao seu papel e modo de vida", "Somente ao local onde vive", "Ao seu nome científico", "À sua cor"], 0, "O habitat é o endereço; o nicho inclui alimentação, relações e comportamento."],
+                    ["Qual prática pode enriquecer naturalmente o solo com nitrogênio?", ["Rotação com leguminosas", "Queima de vegetação", "Uso de mercúrio", "Retirada de bactérias"], 0, "Bactérias associadas às leguminosas participam da fixação do nitrogênio."],
+                    ["Uma sucessão secundária é mais rápida porque:", ["O solo e parte dos nutrientes já existem", "Não há organismos", "Começa em rocha nua", "Não ocorre competição"], 0, "Após um distúrbio, o ambiente conserva condições que facilitam a recolonização." ]
+                ]
+            },
+            "Genética": {
+                videos: [["Genética para o ENEM", "https://www.youtube.com/watch?v=YjwYJHqxwFY"]],
+                material: `
+                    <section class="content-section"><h4>Conceitos fundamentais</h4><ul>
+                        <li><strong>Gene</strong> é um segmento de DNA; <strong>alelos</strong> são versões de um mesmo gene.</li>
+                        <li><strong>Genótipo</strong> é a constituição genética; <strong>fenótipo</strong> é sua expressão influenciada pelo ambiente.</li>
+                        <li>Homozigotos têm alelos iguais; heterozigotos, alelos diferentes.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Herança e biotecnologia</h4><ul>
+                        <li>No cruzamento Aa × Aa, a proporção genotípica é 1:2:1 e a fenotípica dominante é 3:1.</li>
+                        <li>Daltonismo e hemofilia são exemplos de herança recessiva ligada ao X.</li>
+                        <li>Transgênicos, terapia gênica, clonagem e CRISPR são aplicações frequentes nas questões do ENEM.</li>
+                    </ul></section>`,
+                questions: [
+                    ["O fenótipo resulta da relação entre:", ["Genótipo e ambiente", "Apenas genótipo", "Apenas ambiente", "Somente alelos recessivos"], 0, "Características observáveis dependem da informação genética e das condições ambientais."],
+                    ["No cruzamento Aa × Aa, qual proporção fenotípica é esperada em dominância completa?", ["3 dominantes : 1 recessivo", "1 : 1", "Todos recessivos", "Todos heterozigotos"], 0, "Os genótipos são AA, Aa, Aa e aa, resultando em três fenótipos dominantes e um recessivo."],
+                    ["Em um heredograma, pais não afetados com filho afetado sugerem herança:", ["Recessiva", "Sempre dominante", "Sem genes", "Exclusivamente mitocondrial"], 0, "Os pais podem ser heterozigotos e transmitir dois alelos recessivos ao filho."],
+                    ["O tipo sanguíneo AB é exemplo de:", ["Codominância", "Recessividade completa", "Mutação", "Seleção natural"], 0, "Os alelos IA e IB se expressam simultaneamente."],
+                    ["A ferramenta CRISPR-Cas9 é usada para:", ["Editar regiões específicas do DNA", "Produzir ATP", "Fazer fotossíntese", "Substituir ribossomos"], 0, "Ela funciona como uma ferramenta de edição genética direcionada." ]
+                ]
+            },
+            "Química": {
+                videos: [["Química para o ENEM", "https://www.youtube.com/watch?v=UT6qgwjRgH8"]],
+                material: `
+                    <section class="content-section"><h4>Propriedades e reações</h4><ul>
+                        <li>“Semelhante dissolve semelhante”: substâncias polares tendem a se misturar com polares.</li>
+                        <li>Ligações de hidrogênio explicam propriedades da água; o sabão possui parte polar e apolar, facilitando a limpeza.</li>
+                        <li>Em pilhas, ocorre reação espontânea: oxidação no ânodo e redução no cátodo.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Química aplicada</h4><ul>
+                        <li>Na estequiometria, balanceie a equação, use a proporção em mol e converta unidades.</li>
+                        <li>Chuva ácida relaciona-se a óxidos de enxofre e nitrogênio; CFCs participam da destruição do ozônio.</li>
+                        <li>No tratamento de água, coagulação e floculação reúnem impurezas para facilitar a remoção.</li>
+                    </ul></section>`,
+                questions: [
+                    ["Por que óleo e água não se misturam facilmente?", ["Têm polaridades diferentes", "A água é sempre mais densa", "O óleo é um ácido", "Não há moléculas"], 0, "Substâncias apolares, como o óleo, não se misturam bem com a água polar."],
+                    ["Em uma pilha, a oxidação ocorre no:", ["Ânodo", "Cátodo", "Salto de energia", "Eletrólito apenas"], 0, "No ânodo há perda de elétrons; no cátodo, redução e ganho de elétrons."],
+                    ["A eletrólise é um processo:", ["Não espontâneo, impulsionado por corrente elétrica", "Espontâneo sem energia", "Biológico", "Exclusivo de gases"], 0, "Ela usa energia elétrica externa para forçar uma reação química."],
+                    ["A chuva ácida está ligada principalmente à emissão de:", ["Óxidos de enxofre e nitrogênio", "Oxigênio e hidrogênio", "Vapor de água puro", "Gás hélio"], 0, "Esses óxidos reagem na atmosfera e formam ácidos."],
+                    ["A função do sabão na limpeza vem do fato de ele ser:", ["Anfifílico, com parte polar e apolar", "Apenas apolar", "Um metal", "Insolúvel em água"], 0, "A parte apolar interage com a gordura e a polar interage com a água." ]
+                ]
+            },
+            "Física": {
+                videos: [["Física para o ENEM", "https://www.youtube.com/watch?v=hxciSW_B8Hw"], ["Revisão de Física", "https://www.youtube.com/watch?v=OfrVwoubQ1c"]],
+                material: `
+                    <section class="content-section"><h4>Ondas e eletricidade</h4><ul>
+                        <li>Ondas transportam energia, não matéria. Na refração, a frequência não muda.</li>
+                        <li>Reflexão produz eco; difração permite contornar obstáculos; interferência destrutiva é usada no cancelamento de ruído.</li>
+                        <li>Em circuitos domésticos, os aparelhos estão em paralelo: se um desligar, os demais funcionam.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Calor, movimento e óptica</h4><ul>
+                        <li>Calor se transfere por condução, convecção ou irradiação.</li>
+                        <li>As leis de Newton e a conservação de energia explicam fenômenos cotidianos como cinto de segurança e montanha-russa.</li>
+                        <li>Miopia é corrigida por lente divergente; hipermetropia, por lente convergente.</li>
+                    </ul></section>`,
+                questions: [
+                    ["Uma onda transporta principalmente:", ["Energia", "Matéria de um lugar para outro", "Apenas elétrons", "Massa permanente"], 0, "A perturbação se propaga transportando energia, sem transportar matéria de forma líquida."],
+                    ["O eco é resultado de:", ["Reflexão do som", "Refração da luz", "Convecção", "Ressonância"], 0, "O som reflete em uma superfície e retorna ao ouvinte."],
+                    ["Em uma residência, os aparelhos são ligados em paralelo porque:", ["Um pode desligar sem interromper os outros", "A corrente é sempre zero", "Não há tensão", "Todos recebem menos energia"], 0, "Em paralelo, cada aparelho possui caminho próprio no circuito."],
+                    ["O calor do Sol chega à Terra por:", ["Irradiação", "Condução", "Convecção", "Atrito"], 0, "A irradiação ocorre por ondas eletromagnéticas e não exige meio material."],
+                    ["A miopia é corrigida com lente:", ["Divergente", "Convergente", "Plana sempre", "Espelhada"], 0, "A lente divergente desloca o foco para a retina." ]
+                ]
+            },
+            "Meio ambiente": {
+                videos: [["Meio Ambiente para o ENEM", "https://www.youtube.com/watch?v=6HUOevBj1Gs"]],
+                material: `
+                    <section class="content-section"><h4>Impactos ambientais</h4><ul>
+                        <li>Na eutrofização, o excesso de nutrientes causa proliferação de algas, reduz a luz e diminui o oxigênio da água.</li>
+                        <li>O agravamento do efeito estufa decorre, entre outros fatores, de combustíveis fósseis e desmatamento.</li>
+                        <li>Chuva ácida é causada por óxidos de enxofre e nitrogênio; inversão térmica concentra poluentes próximos ao solo.</li>
+                    </ul></section>
+                    <section class="content-section"><h4>Soluções sustentáveis</h4><ul>
+                        <li>Corredores ecológicos conectam fragmentos e favorecem fluxo gênico e dispersão de espécies.</li>
+                        <li>Aterros sanitários impermeabilizam o solo e tratam chorume; lixões contaminam solo e lençóis freáticos.</li>
+                        <li>Compostagem transforma matéria orgânica em adubo por ação de decompositores.</li>
+                    </ul></section>`,
+                questions: [
+                    ["A etapa que reduz o oxigênio da água na eutrofização é principalmente:", ["A decomposição intensa por bactérias aeróbicas", "A formação de chuva ácida", "O aumento da salinidade", "A fotossíntese excessiva de peixes"], 0, "A decomposição da matéria orgânica consome o oxigênio dissolvido e pode provocar mortandade de peixes."],
+                    ["O agravamento do efeito estufa relaciona-se ao aumento de:", ["CO₂ e outros gases de efeito estufa", "Oxigênio atmosférico", "Nitrogênio inerte apenas", "Luz solar produzida por plantas"], 0, "Queima de combustíveis e desmatamento elevam a concentração de gases que retêm calor."],
+                    ["Uma função dos corredores ecológicos é:", ["Conectar populações isoladas e favorecer fluxo gênico", "Aumentar lixões", "Impedir dispersão de sementes", "Eliminar toda borda florestal"], 0, "Eles permitem deslocamento de animais e reduzirem o isolamento de fragmentos."],
+                    ["O chorume é preocupante porque pode:", ["Contaminar solo e lençol freático", "Purificar a água", "Produzir oxigênio", "Substituir adubo"], 0, "É um líquido tóxico gerado pela decomposição de resíduos e exige contenção e tratamento."],
+                    ["A compostagem transforma restos orgânicos em:", ["Adubo", "Plástico", "Combustível fóssil", "Metal"], 0, "Fungos e bactérias decompõem a matéria orgânica e produzem composto aproveitável." ]
+                ]
+            }
+        };
+
 
         /* ==========================================
            ELEMENTOS
@@ -1332,6 +1758,9 @@
 
         const topicDescription =
             document.getElementById("topicDescription");
+
+        const lessonContent =
+            document.getElementById("lessonContent");
 
 
         let currentSubject = null;
@@ -1430,11 +1859,71 @@
             pageSubtitle.textContent =
                 "Continue sua jornada de aprendizagem.";
 
+            renderLesson(title, description);
+
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
 
+        }
+
+        function renderLesson(title, description) {
+            const lesson = redacaoLessons[title] || portuguesLessons[title] || naturezaLessons[title];
+
+            if (!lesson) {
+                lessonContent.innerHTML = `
+                    <h3>Conteúdo de estudo</h3>
+                    <p class="lesson-intro">${description || "Aqui ficará o conteúdo completo desta aula."}</p>
+                    <section class="content-section">
+                        <h4>Em breve</h4>
+                        <p>Os materiais e exercícios deste tópico serão adicionados em uma próxima etapa.</p>
+                    </section>`;
+                return;
+            }
+
+            lessonContent.innerHTML = `
+                <h3>Material</h3>
+                <p class="lesson-intro">Leia os pontos principais e, em seguida, assista ao vídeo para reforçar o conteúdo.</p>
+                ${lesson.material}
+                <section class="content-section">
+                    <h4>Vídeos da aula</h4>
+                    ${(lesson.videos || [["Assistir no YouTube", lesson.video]]).map(video =>
+                        `<a class="video-link" href="${video[1]}" target="_blank" rel="noopener noreferrer">${video[0]} ↗</a>`
+                    ).join(" ")}
+                </section>
+                <section class="content-section">
+                    <h4>Questões</h4>
+                    <p>Marque uma alternativa em cada questão e confira suas respostas.</p>
+                    <div class="questions-list">
+                        ${lesson.questions.map((question, questionIndex) => `
+                            <fieldset class="question-card" data-answer="${question[2]}" data-explanation="${question[3]}">
+                                <legend>${questionIndex + 1}. ${question[0]}</legend>
+                                ${question[1].map((option, optionIndex) => `
+                                    <label class="answer-option">
+                                        <input type="radio" name="question-${questionIndex}" value="${optionIndex}">
+                                        ${option}
+                                    </label>`).join("")}
+                                <p class="answer-feedback"></p>
+                            </fieldset>`).join("")}
+                    </div>
+                    <button class="lesson-button primary questions-action" type="button" onclick="checkAnswers()">Conferir respostas</button>
+                </section>`;
+        }
+
+        function checkAnswers() {
+            const cards = lessonContent.querySelectorAll(".question-card");
+
+            cards.forEach((card) => {
+                const selected = card.querySelector("input:checked");
+                const feedback = card.querySelector(".answer-feedback");
+                const isCorrect = selected && Number(selected.value) === Number(card.dataset.answer);
+
+                feedback.className = "answer-feedback is-visible " + (isCorrect ? "is-correct" : "is-wrong");
+                feedback.textContent = isCorrect
+                    ? "Resposta correta! " + card.dataset.explanation
+                    : (selected ? "Ainda não. " : "Selecione uma alternativa. ") + card.dataset.explanation;
+            });
         }
 
 
