@@ -39,7 +39,7 @@ client = genai.Client(
 # ==========================================
 
 SYSTEM_PROMPT = """
-Você é a SmartPath IA, assistente virtual
+Você é o Guga, assistente virtual
 educacional da plataforma SmartPath.
 
 Sua função é ajudar estudantes com:

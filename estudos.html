@@ -8,6 +8,7 @@
     <title>SmartPath - Estudos</title>
 
     <link rel="stylesheet" href="pagina_inicial.css">
+    
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
@@ -107,8 +108,15 @@
         }
 
         @keyframes study-page-in {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* =========================
@@ -492,7 +500,7 @@
             line-height: 1.7;
         }
 
-        .content-section li + li {
+        .content-section li+li {
             margin-top: 5px;
         }
 
@@ -558,9 +566,19 @@
             line-height: 1.45;
         }
 
-        .answer-feedback.is-visible { display: block; }
-        .answer-feedback.is-correct { background: #ecf8f1; color: #26724b; }
-        .answer-feedback.is-wrong { background: #fff3f2; color: #9b443d; }
+        .answer-feedback.is-visible {
+            display: block;
+        }
+
+        .answer-feedback.is-correct {
+            background: #ecf8f1;
+            color: #26724b;
+        }
+
+        .answer-feedback.is-wrong {
+            background: #fff3f2;
+            color: #9b443d;
+        }
 
         .questions-action {
             margin-top: 18px;
@@ -722,6 +740,20 @@
                 </button>
 
             </nav>
+            <!-- CARD DA SMARTPATH IA -->
+            <div class="smartpath-ia-card" id="openSmartIA">
+                <div class="ia-card-icon">
+                    <img src="img/IA_smartpath.png" alt="Ia da smartpath" class="ia-robot">
+                </div>
+
+                <div class="ia-card-text">
+                    <strong>Precisa de ajuda?</strong>
+                    <span>Converse com<br>nosso assistente IA!</span>
+                </div>
+
+                <div class="ia-card-arrow">
+                    ›
+                </div>
         </aside>
 
 
@@ -959,7 +991,8 @@
                             Recomendados para você
                         </h2>
 
-                        <button class="see-all" type="button" onclick="document.querySelector('.recommendations').scrollIntoView({behavior: 'smooth'})">
+                        <button class="see-all" type="button"
+                            onclick="document.querySelector('.recommendations').scrollIntoView({behavior: 'smooth'})">
                             Ver todos
                         </button>
 
@@ -1075,7 +1108,7 @@
                  PÁGINA DA AULA
             ==================================== -->
 
-            <div id="topicPage" class="page">
+                <div id="topicPage" class="page">
 
                     <button class="back-button" onclick="backToSubject()">
                         ← Voltar para matéria
@@ -1100,13 +1133,13 @@
                     </div>
 
 
-                <div class="lesson-box">
-                    <div id="lessonContent">
-                        <h3>Conteúdo de estudo</h3>
-                        <p id="topicDescription">Aqui ficará o conteúdo completo da aula.</p>
-                    </div>
+                    <div class="lesson-box">
+                        <div id="lessonContent">
+                            <h3>Conteúdo de estudo</h3>
+                            <p id="topicDescription">Aqui ficará o conteúdo completo da aula.</p>
+                        </div>
 
-                </div>
+                    </div>
 
                 </div>
 
@@ -1116,14 +1149,99 @@
 
     </div>
 
+    <!-- =========================================
+         CAIXA DA SMARTPATH IA
+    ========================================== -->
+
+    <div class="smart-ia-box" id="smartIABox">
+
+        <!-- CABEÇALHO -->
+        <div class="smart-ia-header">
+
+            <div class="smart-ia-title">
+
+                <div class="smart-ia-avatar">
+                    <img src="img/IA_smartpath.png" alt="Robô SmartPath">
+                </div>
+
+                <div>
+                    <h3>SmartPath IA</h3>
+                    <span>Seu assistente de estudos</span>
+                </div>
+
+            </div>
+
+            <button class="smart-ia-close" id="closeSmartIA" type="button" aria-label="Fechar SmartPath IA">
+                &times;
+            </button>
+
+        </div>
+
+
+        <!-- ÁREA DO CHAT -->
+        <div class="smart-ia-chat" id="smartIAChat">
+
+            <!-- MENSAGEM INICIAL DA IA -->
+            <div class="smart-ia-message ia-message">
+
+                <div class="message-avatar">
+                    <img src="img/IA_smartpath.png" alt="Ia da smartpath">
+                </div>
+
+                <div class="message-content">
+
+                    <span class="message-name">
+                        SmartPath IA
+                    </span>
+
+                    <p>
+                        Olá! 👋<br>
+                        Sou sua assistente de estudos.
+                        Como posso ajudar você hoje?
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!--
+                AS MENSAGENS DA GEMINI SERÃO
+                INSERIDAS AQUI PELO JAVASCRIPT
+            -->
+
+        </div>
+
+
+        <!-- CAMPO DE MENSAGEM -->
+        <div class="smart-ia-input-area">
+
+            <textarea id="smartIAInput" placeholder="Digite sua dúvida..." rows="1"></textarea>
+
+            <button id="sendSmartIA" class="smart-ia-send" type="button" aria-label="Enviar mensagem">
+
+                <span>➤</span>
+
+            </button>
+
+        </div>
+
+
+        <div class="smart-ia-footer">
+            SmartPath IA • Seu caminho para o conhecimento
+        </div>
+
+    </div>
+
+
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js">new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
-    
+    <script
+        src="https://vlibras.gov.br/app/vlibras-plugin.js">new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
 
     <script>
 
@@ -1424,7 +1542,7 @@
                     ["Qual é a função principal da tese?", ["Apresentar o posicionamento que será defendido", "Repetir o tema com outras palavras", "Encerrar a redação"], 0, "A tese mostra ao leitor qual ponto de vista será argumentado."],
                     ["O que fortalece um parágrafo de desenvolvimento?", ["Argumento, explicação, repertório e relação com o tema", "Apenas uma opinião pessoal", "Uma lista de conectivos"], 0, "O argumento precisa ser desenvolvido e comprovado, não só afirmado."],
                     ["Qual é o problema em “O governo precisa melhorar a situação”?", ["A proposta é vaga e sem detalhamento", "A frase é longa demais", "Ela usa linguagem formal"], 0, "Faltam o agente específico, a ação, o meio e a finalidade."],
-                    ["Qual conectivo é adequado para iniciar a conclusão?", ["Portanto", "Por exemplo", "Embora"], 0, "“Portanto” indica conclusão e consequência da argumentação." ]
+                    ["Qual conectivo é adequado para iniciar a conclusão?", ["Portanto", "Por exemplo", "Embora"], 0, "“Portanto” indica conclusão e consequência da argumentação."]
                 ]
             },
             "Argumentação": {
@@ -1467,7 +1585,7 @@
                     ["Ao citar uma lei para apoiar uma ideia, você usa qual tipo de argumento?", ["Legal", "De consequência", "De comparação"], 0, "Leis, direitos e deveres sociais formam um argumento legal."],
                     ["Qual frase apresenta um argumento de causa?", ["A desinformação é favorecida pela falta de educação midiática", "A desinformação é um problema atual", "A desinformação deve ser combatida"], 0, "Ela explica uma origem possível para o problema."],
                     ["O que define um repertório produtivo?", ["Ter relação real com o argumento", "Ser uma citação muito famosa", "Ser longo e difícil"], 0, "Repertório só ajuda quando comprova e aprofunda a discussão."],
-                    ["Qual opção é mais desenvolvida?", ["A violência urbana limita a circulação e amplia a insegurança coletiva", "A violência urbana é ruim", "A violência existe em muitas cidades"], 0, "A primeira explica uma consequência e mostra o impacto social." ]
+                    ["Qual opção é mais desenvolvida?", ["A violência urbana limita a circulação e amplia a insegurança coletiva", "A violência urbana é ruim", "A violência existe em muitas cidades"], 0, "A primeira explica uma consequência e mostra o impacto social."]
                 ]
             },
             "Competências do ENEM": {
@@ -1512,7 +1630,7 @@
                     ["O que pode ocorrer ao ignorar o recorte específico do tema?", ["Fuga parcial ou total ao tema", "Aumento da nota na C4", "Apenas perda de conectivos"], 0, "A compreensão precisa tratar exatamente do que a proposta pede."],
                     ["Qual competência avalia a organização lógica dos argumentos?", ["Competência 3", "Competência 2", "Competência 4"], 0, "A C3 verifica a defesa organizada e coerente da tese."],
                     ["Qual elemento responde à pergunta “Como a ação acontecerá?”", ["Meio", "Agente", "Finalidade"], 0, "O meio descreve o modo ou instrumento usado para realizar a ação."],
-                    ["Qual conectivo pode iniciar o segundo desenvolvimento?", ["Além disso", "Portanto", "Em síntese"], 0, "“Além disso” ajuda a introduzir um argumento complementar." ]
+                    ["Qual conectivo pode iniciar o segundo desenvolvimento?", ["Além disso", "Portanto", "Em síntese"], 0, "“Além disso” ajuda a introduzir um argumento complementar."]
                 ]
             }
         };
@@ -1551,7 +1669,7 @@
                     ["A frase “O trânsito mata mais que a guerra. Não corra.” busca convencer principalmente por:", ["Uma analogia impactante", "Dados técnicos exatos", "Uma narrativa", "Descrição de danos físicos"], 0, "A comparação intensa com a guerra produz choque e reforça o alerta."],
                     ["Em “os cidadãos exigem melhorias; o governo, no entanto, corta verbas”, “no entanto” marca:", ["Oposição", "Adição", "Tempo", "Explicação"], 0, "O conectivo contrasta a demanda social com a ação estatal."],
                     ["Em “sua solidariedade é o combustível do projeto”, “combustível” produz:", ["Uma metáfora que associa energia e motivação", "Uma informação literal", "Uma crítica ao petróleo", "Uma ordem"], 0, "O termo é empregado figuradamente para expressar aquilo que move o projeto."],
-                    ["Um editorial se diferencia de uma notícia porque:", ["Expressa a posição do veículo sobre um tema", "É sempre ficcional", "Não tem opinião", "Usa somente linguagem informal"], 0, "O editorial apresenta formalmente a opinião institucional do meio de comunicação." ]
+                    ["Um editorial se diferencia de uma notícia porque:", ["Expressa a posição do veículo sobre um tema", "É sempre ficcional", "Não tem opinião", "Usa somente linguagem informal"], 0, "O editorial apresenta formalmente a opinião institucional do meio de comunicação."]
                 ]
             },
             "Figuras de linguagem": {
@@ -1585,7 +1703,7 @@
                     ["Qual frase apresenta paradoxo?", ["Para encontrar paz, travou uma guerra íntima", "Cheguei morto de cansaço", "Subiu para cima do palco", "Comprei duas garrafas"], 0, "O paradoxo aproxima ideias opostas em uma mesma formulação."],
                     ["A repetição de “Quero” no início de versos caracteriza:", ["Anáfora", "Hipérbato", "Assíndeto", "Elipse"], 0, "Anáfora é a repetição intencional no início de frases ou versos."],
                     ["“Faltou com a verdade” é um caso de:", ["Eufemismo", "Hipérbole", "Ironia", "Metonímia"], 0, "A expressão suaviza a afirmação direta de que alguém mentiu."],
-                    ["“Um grito áspero e avermelhado” exemplifica:", ["Sinestesia", "Antítese", "Prosopopeia", "Catacrese"], 0, "A frase mistura percepções de audição, tato e visão." ]
+                    ["“Um grito áspero e avermelhado” exemplifica:", ["Sinestesia", "Antítese", "Prosopopeia", "Catacrese"], 0, "A frase mistura percepções de audição, tato e visão."]
                 ]
             },
             "Gramática": {
@@ -1619,7 +1737,7 @@
                     ["As variedades populares são legítimas porque:", ["Possuem lógica interna e cumprem a comunicação", "Não têm regras", "São imutáveis", "Devem substituir toda escrita formal"], 0, "Toda variedade linguística é estruturada e adequada a determinados contextos."],
                     ["“Tchê” e “uai” são exemplos de variação:", ["Diatópica", "Diacrônica", "Diastrásica", "Diafásica"], 0, "São marcas relacionadas a regiões geográficas diferentes."],
                     ["Pronomes e construções do século XIX em desuso hoje indicam variação:", ["Diacrônica", "Regional", "Técnica", "Coloquial"], 0, "A variação diacrônica ocorre ao longo do tempo histórico."],
-                    ["Usar linguagem mais polida em uma palestra acadêmica exemplifica variação:", ["Diafásica", "Diatópica", "Etária", "Geográfica"], 0, "O falante adequa o registro à situação comunicativa." ]
+                    ["Usar linguagem mais polida em uma palestra acadêmica exemplifica variação:", ["Diafásica", "Diatópica", "Etária", "Geográfica"], 0, "O falante adequa o registro à situação comunicativa."]
                 ]
             },
             "Literatura": {
@@ -1653,7 +1771,7 @@
                     ["O zoomorfismo em O Cortiço se relaciona ao:", ["Determinismo naturalista", "Romantismo idealista", "Parnasianismo", "Espiritualismo"], 0, "O Naturalismo tende a explicar o ser humano por meio, raça e momento, aproximando-o do instinto."],
                     ["A Antropofagia de Oswald de Andrade defendia:", ["Assimilar influências externas e recriá-las nacionalmente", "Rejeitar toda influência externa", "Copiar a Europa", "Isolar o Brasil"], 0, "A proposta era absorver criticamente referências externas e transformá-las."],
                     ["A narrativa de Clarice Lispector privilegia:", ["A sondagem psicológica e o fluxo de consciência", "Dados estatísticos", "Arquitetura urbana", "Sonetos clássicos"], 0, "A terceira fase modernista explora de forma marcante a interioridade das personagens."],
-                    ["Machado de Assis, no Realismo, criticava sobretudo:", ["A hipocrisia e as falsas aparências da elite", "Heróis medievais", "A floresta amazônica", "Valores monárquicos sem crítica"], 0, "A ironia machadiana expõe egoísmo, interesses e moralismo social." ]
+                    ["Machado de Assis, no Realismo, criticava sobretudo:", ["A hipocrisia e as falsas aparências da elite", "Heróis medievais", "A floresta amazônica", "Valores monárquicos sem crítica"], 0, "A ironia machadiana expõe egoísmo, interesses e moralismo social."]
                 ]
             },
             "Gêneros textuais": {
@@ -1688,7 +1806,7 @@
                     ["Os gêneros textuais são:", ["Realizações sociais da linguagem", "Estruturas fixas e imutáveis", "Apenas textos falados", "Textos sem elementos visuais"], 0, "Eles surgem em práticas sociais e mudam conforme necessidades de comunicação."],
                     ["Um infográfico tem como função principal:", ["Facilitar a leitura de informações complexas com texto e visual", "Entreter sem dados", "Contar uma ficção", "Vender terras"], 0, "Ele integra recursos visuais e verbais para tornar dados mais compreensíveis."],
                     ["O meme cria sentido principalmente pela:", ["Intertextualidade entre humor, imagem e texto", "Linguagem exclusivamente acadêmica", "Descrição científica", "Estrutura em versos"], 0, "Memes retomam referências compartilhadas para produzir humor ou crítica."],
-                    ["Um artigo científico que defende uma tese com dados é predominantemente:", ["Dissertativo-argumentativo", "Narrativo", "Injuntivo", "Descritivo poético"], 0, "Ele organiza informações e argumentos para sustentar uma posição." ]
+                    ["Um artigo científico que defende uma tese com dados é predominantemente:", ["Dissertativo-argumentativo", "Narrativo", "Injuntivo", "Descritivo poético"], 0, "Ele organiza informações e argumentos para sustentar uma posição."]
                 ]
             }
         };
@@ -1723,7 +1841,7 @@
                     ["A fase clara produz principalmente:", ["ATP e NADPH", "Glicose e O₂", "RuBisCO e CO₂", "Apenas glicose"], 0, "Ela transforma energia luminosa em ATP e NADPH, usados depois no Ciclo de Calvin."],
                     ["O Ciclo de Calvin ocorre no:", ["Estroma do cloroplasto", "Tilacoide", "Núcleo", "Ribossomo"], 0, "A fase de fixação do carbono ocorre no estroma."],
                     ["No ponto de compensação fótico:", ["Fotossíntese e respiração têm a mesma taxa", "A planta para de respirar", "A fotossíntese é máxima", "Não há troca gasosa"], 0, "A produção e o consumo de matéria orgânica se equilibram."],
-                    ["O CO₂ é essencial na fotossíntese porque fornece:", ["Carbono para moléculas orgânicas", "Oxigênio livre", "Luz para os tilacoides", "Clorofila"], 0, "O carbono do CO₂ é incorporado na produção de açúcares." ]
+                    ["O CO₂ é essencial na fotossíntese porque fornece:", ["Carbono para moléculas orgânicas", "Oxigênio livre", "Luz para os tilacoides", "Clorofila"], 0, "O carbono do CO₂ é incorporado na produção de açúcares."]
                 ]
             },
             "Ecologia": {
@@ -1754,7 +1872,7 @@
                     ["A maior concentração de mercúrio em uma cadeia alimentar tende a ocorrer:", ["No predador de topo", "Nos produtores", "Em todos igualmente", "Apenas em decompositores"], 0, "A magnificação trófica aumenta a concentração de poluentes persistentes nos níveis mais altos."],
                     ["O nicho ecológico de uma espécie corresponde:", ["Ao seu papel e modo de vida", "Somente ao local onde vive", "Ao seu nome científico", "À sua cor"], 0, "O habitat é o endereço; o nicho inclui alimentação, relações e comportamento."],
                     ["Qual prática pode enriquecer naturalmente o solo com nitrogênio?", ["Rotação com leguminosas", "Queima de vegetação", "Uso de mercúrio", "Retirada de bactérias"], 0, "Bactérias associadas às leguminosas participam da fixação do nitrogênio."],
-                    ["Uma sucessão secundária é mais rápida porque:", ["O solo e parte dos nutrientes já existem", "Não há organismos", "Começa em rocha nua", "Não ocorre competição"], 0, "Após um distúrbio, o ambiente conserva condições que facilitam a recolonização." ]
+                    ["Uma sucessão secundária é mais rápida porque:", ["O solo e parte dos nutrientes já existem", "Não há organismos", "Começa em rocha nua", "Não ocorre competição"], 0, "Após um distúrbio, o ambiente conserva condições que facilitam a recolonização."]
                 ]
             },
             "Genética": {
@@ -1785,7 +1903,7 @@
                     ["No cruzamento Aa × Aa, qual proporção fenotípica é esperada em dominância completa?", ["3 dominantes : 1 recessivo", "1 : 1", "Todos recessivos", "Todos heterozigotos"], 0, "Os genótipos são AA, Aa, Aa e aa, resultando em três fenótipos dominantes e um recessivo."],
                     ["Em um heredograma, pais não afetados com filho afetado sugerem herança:", ["Recessiva", "Sempre dominante", "Sem genes", "Exclusivamente mitocondrial"], 0, "Os pais podem ser heterozigotos e transmitir dois alelos recessivos ao filho."],
                     ["O tipo sanguíneo AB é exemplo de:", ["Codominância", "Recessividade completa", "Mutação", "Seleção natural"], 0, "Os alelos IA e IB se expressam simultaneamente."],
-                    ["A ferramenta CRISPR-Cas9 é usada para:", ["Editar regiões específicas do DNA", "Produzir ATP", "Fazer fotossíntese", "Substituir ribossomos"], 0, "Ela funciona como uma ferramenta de edição genética direcionada." ]
+                    ["A ferramenta CRISPR-Cas9 é usada para:", ["Editar regiões específicas do DNA", "Produzir ATP", "Fazer fotossíntese", "Substituir ribossomos"], 0, "Ela funciona como uma ferramenta de edição genética direcionada."]
                 ]
             },
             "Química": {
@@ -1816,7 +1934,7 @@
                     ["Em uma pilha, a oxidação ocorre no:", ["Ânodo", "Cátodo", "Salto de energia", "Eletrólito apenas"], 0, "No ânodo há perda de elétrons; no cátodo, redução e ganho de elétrons."],
                     ["A eletrólise é um processo:", ["Não espontâneo, impulsionado por corrente elétrica", "Espontâneo sem energia", "Biológico", "Exclusivo de gases"], 0, "Ela usa energia elétrica externa para forçar uma reação química."],
                     ["A chuva ácida está ligada principalmente à emissão de:", ["Óxidos de enxofre e nitrogênio", "Oxigênio e hidrogênio", "Vapor de água puro", "Gás hélio"], 0, "Esses óxidos reagem na atmosfera e formam ácidos."],
-                    ["A função do sabão na limpeza vem do fato de ele ser:", ["Anfifílico, com parte polar e apolar", "Apenas apolar", "Um metal", "Insolúvel em água"], 0, "A parte apolar interage com a gordura e a polar interage com a água." ]
+                    ["A função do sabão na limpeza vem do fato de ele ser:", ["Anfifílico, com parte polar e apolar", "Apenas apolar", "Um metal", "Insolúvel em água"], 0, "A parte apolar interage com a gordura e a polar interage com a água."]
                 ]
             },
             "Física": {
@@ -1847,7 +1965,7 @@
                     ["O eco é resultado de:", ["Reflexão do som", "Refração da luz", "Convecção", "Ressonância"], 0, "O som reflete em uma superfície e retorna ao ouvinte."],
                     ["Em uma residência, os aparelhos são ligados em paralelo porque:", ["Um pode desligar sem interromper os outros", "A corrente é sempre zero", "Não há tensão", "Todos recebem menos energia"], 0, "Em paralelo, cada aparelho possui caminho próprio no circuito."],
                     ["O calor do Sol chega à Terra por:", ["Irradiação", "Condução", "Convecção", "Atrito"], 0, "A irradiação ocorre por ondas eletromagnéticas e não exige meio material."],
-                    ["A miopia é corrigida com lente:", ["Divergente", "Convergente", "Plana sempre", "Espelhada"], 0, "A lente divergente desloca o foco para a retina." ]
+                    ["A miopia é corrigida com lente:", ["Divergente", "Convergente", "Plana sempre", "Espelhada"], 0, "A lente divergente desloca o foco para a retina."]
                 ]
             },
             "Meio ambiente": {
@@ -1878,7 +1996,7 @@
                     ["O agravamento do efeito estufa relaciona-se ao aumento de:", ["CO₂ e outros gases de efeito estufa", "Oxigênio atmosférico", "Nitrogênio inerte apenas", "Luz solar produzida por plantas"], 0, "Queima de combustíveis e desmatamento elevam a concentração de gases que retêm calor."],
                     ["Uma função dos corredores ecológicos é:", ["Conectar populações isoladas e favorecer fluxo gênico", "Aumentar lixões", "Impedir dispersão de sementes", "Eliminar toda borda florestal"], 0, "Eles permitem deslocamento de animais e reduzirem o isolamento de fragmentos."],
                     ["O chorume é preocupante porque pode:", ["Contaminar solo e lençol freático", "Purificar a água", "Produzir oxigênio", "Substituir adubo"], 0, "É um líquido tóxico gerado pela decomposição de resíduos e exige contenção e tratamento."],
-                    ["A compostagem transforma restos orgânicos em:", ["Adubo", "Plástico", "Combustível fóssil", "Metal"], 0, "Fungos e bactérias decompõem a matéria orgânica e produzem composto aproveitável." ]
+                    ["A compostagem transforma restos orgânicos em:", ["Adubo", "Plástico", "Combustível fóssil", "Metal"], 0, "Fungos e bactérias decompõem a matéria orgânica e produzem composto aproveitável."]
                 ]
             }
         };
@@ -2095,8 +2213,8 @@
                 <section class="content-section">
                     <h4>Vídeos da aula</h4>
                     ${(lesson.videos || [["Assistir no YouTube", lesson.video]]).map(video =>
-                        `<a class="video-link" href="${video[1]}" target="_blank" rel="noopener noreferrer">${video[0]} ↗</a>`
-                    ).join(" ")}
+                `<a class="video-link" href="${video[1]}" target="_blank" rel="noopener noreferrer">${video[0]} ↗</a>`
+            ).join(" ")}
                 </section>
                 <section class="content-section">
                     <h4>Questões</h4>
@@ -2191,34 +2309,35 @@
             });
 
         }
-document.addEventListener("DOMContentLoaded", () => {
-  const subjectFromTrail = new URLSearchParams(window.location.search).get("materia");
-  if (subjectFromTrail && subjects[subjectFromTrail]) {
-    openSubject(subjectFromTrail);
-  }
+        document.addEventListener("DOMContentLoaded", () => {
+            const subjectFromTrail = new URLSearchParams(window.location.search).get("materia");
+            if (subjectFromTrail && subjects[subjectFromTrail]) {
+                openSubject(subjectFromTrail);
+            }
 
-  const paginaAtual = window.location.pathname.split("/").pop();
+            const paginaAtual = window.location.pathname.split("/").pop();
 
 
-  const botoesNav = document.querySelectorAll(".nav-item");
+            const botoesNav = document.querySelectorAll(".nav-item");
 
-  botoesNav.forEach(botao => {
+            botoesNav.forEach(botao => {
 
-    const onclickAtributo = botao.getAttribute("onclick") || "";
-    
+                const onclickAtributo = botao.getAttribute("onclick") || "";
 
-    if (onclickAtributo.includes(paginaAtual)) {
-      botao.classList.add("is-active");
-    } else {
-      botao.classList.remove("is-active");
-    }
-  });
-});
+
+                if (onclickAtributo.includes(paginaAtual)) {
+                    botao.classList.add("is-active");
+                } else {
+                    botao.classList.remove("is-active");
+                }
+            });
+        });
 
 
 
 
     </script>
+    <script src="pagina_inicial.js"></script>
 
 </body>
 
