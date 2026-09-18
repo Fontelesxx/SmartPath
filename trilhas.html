@@ -4,133 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartPath — Trilhas de Estudo</title>
-    <link rel="stylesheet" href="trilhas.css">
     <link rel="stylesheet" href="pagina_inicial.css">
+    <link rel="stylesheet" href="trilhas.css">
 </head>
 <body>
     <main class="smart-shell">
-
-        <!-- BARRA LATERAL -->
         <aside class="smart-sidebar" aria-label="Navegação principal">
-
-            <div class="brand-block">
-
-                <div class="brand-mark-wrap">
-                    <img class="brand-mark" src="img/logo_inicial.jpeg" alt="Logo Smart Path">
-                </div>
-
-            </div>
-
+            <div class="brand-block"><div class="brand-mark-wrap"><img class="brand-mark" src="img/logo_inicial.jpeg" alt="Logo Smart Path"></div></div>
             <nav class="side-nav">
-
-                <button class="nav-item" type="button" onclick="window.location.href='pagina_inicial.html'">
-                    <span>
-                        <img src="img/botao-de-inicio.png" alt="Ícone de início" class="icones_pagina_inicial">
-                    </span>
-                    <span>Início</span>
-                </button>
-
-                <button class="nav-item" type="button" onclick="window.location.href='estudos.html'">
-                    <span>
-                        <img src="img/abra-o-livro.png" alt="Ícone de estudos" class="icones_pagina_inicial">
-                    </span>
-                    <span>Estudos</span>
-                </button>
-
-                <button class="nav-item" type="button" onclick="window.location.href='trilhas.html'">
-                    <span>
-                        <img src="img/maneira.png" alt="Ícone de trilha" class="icones_pagina_inicial">
-                    </span>
-                    <span>Trilhas</span>
-                </button>
-
-                <button class="nav-item" type="button" onclick="window.location.href='simulados.html'">
-                    <span>
-                        <img src="img/confirme.png" alt="Ícone de simulados" class="icones_pagina_inicial">
-                    </span>
-                    <span>Simulados</span>
-                </button>
-
-                <button class="nav-item" type="button" onclick="window.location.href='desempenho.html'">
-                    <span>
-                        <img src="img/grafico.png" alt="Ícone de gráfico" class="icones_pagina_inicial">
-                    </span>
-                    <span>Desempenho</span>
-                </button>
-
-                <button class="nav-item" type="button" onclick="window.location.href='perfil.html'">
-                    <span>
-                        <img src="img/perfil-de-usuario.png" alt="Ícone de perfil" class="icones_pagina_inicial">
-                    </span>
-                    <span>Perfil</span>
-                </button>
-
+                <button class="nav-item" type="button" data-route="pagina_inicial.html"><span><img src="img/botao-de-inicio.png" alt="" class="icones_pagina_inicial"></span><span>Início</span></button>
+                <button class="nav-item" type="button" data-route="estudos.html"><span><img src="img/abra-o-livro.png" alt="" class="icones_pagina_inicial"></span><span>Estudos</span></button>
+                <button class="nav-item is-active" type="button" aria-current="page"><span><img src="img/maneira.png" alt="" class="icones_pagina_inicial"></span><span>Trilhas</span></button>
+                <button class="nav-item" type="button" data-route="simulados.html"><span><img src="img/confirme.png" alt="" class="icones_pagina_inicial"></span><span>Simulados</span></button>
+                <button class="nav-item" type="button" data-route="desempenho.html"><span><img src="img/grafico.png" alt="" class="icones_pagina_inicial"></span><span>Desempenho</span></button>
+                <button class="nav-item" type="button" data-route="perfil.html"><span><img src="img/perfil-de-usuario.png" alt="" class="icones_pagina_inicial"></span><span>Perfil</span></button>
             </nav>
-
         </aside>
-
-        <section class="smart-content">
-            <header class="topbar">
-                <div class="heading-area">
-                    <h1>Trilhas de Estudo</h1>
-                    <p>Escolha a trilha que mais combina com seus objetivos e comece sua jornada.</p>
-                </div>
-
-                <div class="profile-actions">
-                    <button class="icon-button" type="button" aria-label="Notificações">
-                        <img src="img/notificacao.png" alt="" class="icones_pagina_inicial">
-                    </button>
-
-                    <button class="avatar-button" type="button" data-route="perfil.html" aria-label="Abrir perfil">
-                        <img src="img/perfil.png" alt="Perfil">
-                    </button>
-                </div>
+        <section class="smart-content trails-page">
+            <header class="topbar trails-topbar">
+                <div><p class="page-kicker">SEU PLANO DE PREPARAÇÃO</p><h1>Escolha seu caminho</h1><p>Trilhas organizadas para você saber o que estudar agora e qual é o próximo passo.</p></div>
+                <button class="avatar-button" type="button" data-route="perfil.html" aria-label="Abrir perfil"><img src="img/perfil.png" alt="Perfil"></button>
             </header>
-
-            <section class="trilhas-list" aria-label="Trilhas disponíveis">
-
-                <a class="trilha-card exatas" href="estudos.html?materia=matematica">
-                    <div class="trilha-icon">
-                        <img src="img/icon_mat.jpeg" alt="Matemática">
-                    </div>
-
-                    <div class="trilha-copy">
-                        <h2>Exatas</h2>
-                        <p>Aprofunde seus conhecimentos em Matemática,<br class="desktop-break">
-                           Física, Química e suas tecnologias.</p>
-
-                        <div class="subjects">
-                            <span>Matemática</span>
-                            <span>Física</span>
-                            <span>Química</span>
-                        </div>
-                    </div>
-
-                    <img src="img/entrar.png" alt="icone de entrar" class = "entrar"></a>
-
-                <a class="trilha-card humanas" href="estudos.html?trilha=humanas">
-                    <div class="trilha-icon">
-                        <img src="img/abra-o-livro.png" alt="Humanas">
-                    </div>
-
-                    <div class="trilha-copy">
-                        <h2>Humanas</h2>
-                        <p>Desenvolva suas habilidades em História, Geografia,<br class="desktop-break">
-                           Sociologia, Filosofia e suas tecnologias.</p>
-
-                        <div class="subjects">
-                            <span>História</span>
-                            <span>Geografia</span>
-                            <span>Sociologia</span>
-                            <span>Filosofia</span>
-                        </div>
-                    </div>
-
-                    <img src="img/entrar.png" alt="icone de entrar" class = "entrar">
-                </a>
-
+            <section class="trail-progress card-surface" aria-label="Progresso das trilhas">
+                <div class="progress-copy"><span class="progress-icon" aria-hidden="true">⌁</span><div><p id="progressLabel">Progresso da sua trilha</p><strong><span id="progressValue">0</span>% concluído</strong><small id="progressMessage">Marque uma etapa concluída para começar.</small></div></div>
+                <div class="progress-visual"><div class="progress-track"><span id="progressBar"></span></div><span id="completedCount">0 de 8 etapas</span></div>
+            </section>
+            <section class="trails-grid" aria-label="Trilhas disponíveis">
+                <article class="path-card complete-path featured"><div class="path-card-heading"><div class="path-badge">RECOMENDADA</div><span class="path-icon">✦</span></div><h2>ENEM Completa</h2><p>Uma rota equilibrada por todas as áreas, com revisão e prática de redação.</p><div class="path-meta"><span>8 etapas</span><span>•</span><span>4 áreas</span></div><button class="start-path" type="button" data-path="complete">Ver jornada <span>→</span></button></article>
+                <article class="path-card exatas-path"><div class="path-card-heading"><span class="path-label">RACIOCÍNIO LÓGICO</span><img src="img/icon_mat.jpeg" alt=""></div><h2>Exatas</h2><p>Matemática, Física e Química em uma sequência para ganhar segurança nos cálculos.</p><div class="path-meta"><span>6 etapas</span><span>•</span><span>Matemática e Natureza</span></div><button class="start-path" type="button" data-path="exatas">Ver jornada <span>→</span></button></article>
+                <article class="path-card languages-path"><div class="path-card-heading"><span class="path-label">COMUNICAÇÃO</span><img src="img/icon_pt.jpeg" alt=""></div><h2>Linguagens e Redação</h2><p>Leitura, gramática e produção textual para fortalecer sua argumentação.</p><div class="path-meta"><span>5 etapas</span><span>•</span><span>Linguagens e Redação</span></div><button class="start-path" type="button" data-path="languages">Ver jornada <span>→</span></button></article>
+                <article class="path-card humanas-path"><div class="path-card-heading"><span class="path-label">LEITURA DE MUNDO</span><img src="img/icon_geo.jpeg" alt=""></div><h2>Ciências Humanas</h2><p>Conecte História, Geografia, Filosofia e Sociologia para interpretar o mundo.</p><div class="path-meta"><span>6 etapas</span><span>•</span><span>Humanas</span></div><button class="start-path" type="button" data-path="humanas">Ver jornada <span>→</span></button></article>
+            </section>
+            <section class="journey-panel card-surface" id="journeyPanel" aria-live="polite" hidden tabindex="-1">
+                <div class="journey-header"><div><p class="page-kicker" id="journeyEyebrow">JORNADA RECOMENDADA</p><h2 id="journeyTitle">ENEM Completa</h2><p id="journeyDescription">Siga uma etapa por vez e mantenha seu ritmo.</p><p class="remaining-steps" id="remainingSteps"></p></div><div class="journey-actions"><button class="study-all" type="button" id="studyAll">Abrir estudos <span>→</span></button><button class="reset-path" type="button" id="resetPath">Reiniciar trilha</button></div></div>
+                <ol class="steps-list" id="stepsList"></ol>
             </section>
         </section>
     </main>
+    <script src="trilhas.js"></script>
 </body>
 </html>
