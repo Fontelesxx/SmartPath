@@ -2192,6 +2192,11 @@
 
         }
 document.addEventListener("DOMContentLoaded", () => {
+  const subjectFromTrail = new URLSearchParams(window.location.search).get("materia");
+  if (subjectFromTrail && subjects[subjectFromTrail]) {
+    openSubject(subjectFromTrail);
+  }
+
   const paginaAtual = window.location.pathname.split("/").pop();
 
 
