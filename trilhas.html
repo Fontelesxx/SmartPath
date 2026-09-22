@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +8,221 @@
     <link rel="stylesheet" href="pagina_inicial.css">
     <link rel="stylesheet" href="trilhas.css">
 </head>
+
 <body>
     <main class="smart-shell">
         <aside class="smart-sidebar" aria-label="Navegação principal">
-            <div class="brand-block"><div class="brand-mark-wrap"><img class="brand-mark" src="img/logo_inicial.jpeg" alt="Logo Smart Path"></div></div>
+            <div class="brand-block">
+                <div class="brand-mark-wrap"><img class="brand-mark" src="img/logo_inicial.jpeg" alt="Logo Smart Path">
+                </div>
+            </div>
             <nav class="side-nav">
-                <button class="nav-item" type="button" data-route="pagina_inicial.html"><span><img src="img/botao-de-inicio.png" alt="" class="icones_pagina_inicial"></span><span>Início</span></button>
-                <button class="nav-item" type="button" data-route="estudos.html"><span><img src="img/abra-o-livro.png" alt="" class="icones_pagina_inicial"></span><span>Estudos</span></button>
-                <button class="nav-item is-active" type="button" aria-current="page"><span><img src="img/maneira.png" alt="" class="icones_pagina_inicial"></span><span>Trilhas</span></button>
-                <button class="nav-item" type="button" data-route="simulados.html"><span><img src="img/confirme.png" alt="" class="icones_pagina_inicial"></span><span>Simulados</span></button>
-                <button class="nav-item" type="button" data-route="desempenho.html"><span><img src="img/grafico.png" alt="" class="icones_pagina_inicial"></span><span>Desempenho</span></button>
-                <button class="nav-item" type="button" data-route="perfil.html"><span><img src="img/perfil-de-usuario.png" alt="" class="icones_pagina_inicial"></span><span>Perfil</span></button>
+                <button class="nav-item" type="button" data-route="pagina_inicial.html"><span><img
+                            src="img/botao-de-inicio.png" alt=""
+                            class="icones_pagina_inicial"></span><span>Início</span></button>
+                <button class="nav-item" type="button" data-route="estudos.html"><span><img src="img/abra-o-livro.png"
+                            alt="" class="icones_pagina_inicial"></span><span>Estudos</span></button>
+                <button class="nav-item is-active" type="button" aria-current="page"><span><img src="img/maneira.png"
+                            alt="" class="icones_pagina_inicial"></span><span>Trilhas</span></button>
+                <button class="nav-item" type="button" data-route="simulados.html"><span><img src="img/confirme.png"
+                            alt="" class="icones_pagina_inicial"></span><span>Simulados</span></button>
+                <button class="nav-item" type="button" data-route="desempenho.html"><span><img src="img/grafico.png"
+                            alt="" class="icones_pagina_inicial"></span><span>Desempenho</span></button>
+                <button class="nav-item" type="button" data-route="perfil.html"><span><img
+                            src="img/perfil-de-usuario.png" alt=""
+                            class="icones_pagina_inicial"></span><span>Perfil</span></button>
+
             </nav>
+
+
+            <!-- CARD DA SMARTPATH IA -->
+        <div class="smartpath-ia-card" id="openSmartIA">
+          <div class="ia-card-icon">
+            <img src="img/IA_smartpath.png" alt="Ia da smartpath" class="ia-robot">
+          </div>
+
+          <div class="ia-card-text">
+            <strong>Precisa de ajuda?</strong>
+            <span>Converse com<br>nosso assistente IA!</span>
+          </div>
+
+          <div class="ia-card-arrow">
+            ›
+          </div>
+            
         </aside>
         <section class="smart-content trails-page">
             <header class="topbar trails-topbar">
-                <div><p class="page-kicker">SEU PLANO DE PREPARAÇÃO</p><h1>Escolha seu caminho</h1><p>Trilhas organizadas para você saber o que estudar agora e qual é o próximo passo.</p></div>
-                <button class="avatar-button" type="button" data-route="perfil.html" aria-label="Abrir perfil"><img src="img/perfil.png" alt="Perfil"></button>
+                <div>
+                    <p class="page-kicker">SEU PLANO DE PREPARAÇÃO</p>
+                    <h1>Escolha seu caminho</h1>
+                    <p>Trilhas organizadas para você saber o que estudar agora e qual é o próximo passo.</p>
+                </div>
+                <button class="avatar-button" type="button" data-route="perfil.html" aria-label="Abrir perfil"><img
+                        src="img/perfil.png" alt="Perfil"></button>
             </header>
             <section class="trail-progress card-surface" aria-label="Progresso das trilhas">
-                <div class="progress-copy"><span class="progress-icon" aria-hidden="true">⌁</span><div><p id="progressLabel">Progresso da sua trilha</p><strong><span id="progressValue">0</span>% concluído</strong><small id="progressMessage">Marque uma etapa concluída para começar.</small></div></div>
-                <div class="progress-visual"><div class="progress-track"><span id="progressBar"></span></div><span id="completedCount">0 de 8 etapas</span></div>
+                <div class="progress-copy"><span class="progress-icon" aria-hidden="true">⌁</span>
+                    <div>
+                        <p id="progressLabel">Progresso da sua trilha</p><strong><span id="progressValue">0</span>%
+                            concluído</strong><small id="progressMessage">Marque uma etapa concluída para
+                            começar.</small>
+                    </div>
+                </div>
+                <div class="progress-visual">
+                    <div class="progress-track"><span id="progressBar"></span></div><span id="completedCount">0 de 8
+                        etapas</span>
+                </div>
             </section>
             <section class="trails-grid" aria-label="Trilhas disponíveis">
-                <article class="path-card complete-path featured"><div class="path-card-heading"><div class="path-badge">RECOMENDADA</div><span class="path-icon">✦</span></div><h2>ENEM Completa</h2><p>Uma rota equilibrada por todas as áreas, com revisão e prática de redação.</p><div class="path-meta"><span>8 etapas</span><span>•</span><span>4 áreas</span></div><button class="start-path" type="button" data-path="complete">Ver jornada <span>→</span></button></article>
-                <article class="path-card exatas-path"><div class="path-card-heading"><span class="path-label">RACIOCÍNIO LÓGICO</span><img src="img/icon_mat.jpeg" alt=""></div><h2>Exatas</h2><p>Matemática, Física e Química em uma sequência para ganhar segurança nos cálculos.</p><div class="path-meta"><span>6 etapas</span><span>•</span><span>Matemática e Natureza</span></div><button class="start-path" type="button" data-path="exatas">Ver jornada <span>→</span></button></article>
-                <article class="path-card languages-path"><div class="path-card-heading"><span class="path-label">COMUNICAÇÃO</span><img src="img/icon_pt.jpeg" alt=""></div><h2>Linguagens e Redação</h2><p>Leitura, gramática e produção textual para fortalecer sua argumentação.</p><div class="path-meta"><span>5 etapas</span><span>•</span><span>Linguagens e Redação</span></div><button class="start-path" type="button" data-path="languages">Ver jornada <span>→</span></button></article>
-                <article class="path-card humanas-path"><div class="path-card-heading"><span class="path-label">LEITURA DE MUNDO</span><img src="img/icon_geo.jpeg" alt=""></div><h2>Ciências Humanas</h2><p>Conecte História, Geografia, Filosofia e Sociologia para interpretar o mundo.</p><div class="path-meta"><span>6 etapas</span><span>•</span><span>Humanas</span></div><button class="start-path" type="button" data-path="humanas">Ver jornada <span>→</span></button></article>
+                <article class="path-card complete-path featured">
+                    <div class="path-card-heading">
+                        <div class="path-badge">RECOMENDADA</div><span class="path-icon">✦</span>
+                    </div>
+                    <h2>ENEM Completa</h2>
+                    <p>Uma rota equilibrada por todas as áreas, com revisão e prática de redação.</p>
+                    <div class="path-meta"><span>8 etapas</span><span>•</span><span>4 áreas</span></div><button
+                        class="start-path" type="button" data-path="complete">Ver jornada <span>→</span></button>
+                </article>
+                <article class="path-card exatas-path">
+                    <div class="path-card-heading"><span class="path-label">RACIOCÍNIO LÓGICO</span><img
+                            src="img/icon_mat.jpeg" alt=""></div>
+                    <h2>Exatas</h2>
+                    <p>Matemática, Física e Química em uma sequência para ganhar segurança nos cálculos.</p>
+                    <div class="path-meta"><span>6 etapas</span><span>•</span><span>Matemática e Natureza</span></div>
+                    <button class="start-path" type="button" data-path="exatas">Ver jornada <span>→</span></button>
+                </article>
+                <article class="path-card languages-path">
+                    <div class="path-card-heading"><span class="path-label">COMUNICAÇÃO</span><img
+                            src="img/icon_pt.jpeg" alt=""></div>
+                    <h2>Linguagens e Redação</h2>
+                    <p>Leitura, gramática e produção textual para fortalecer sua argumentação.</p>
+                    <div class="path-meta"><span>5 etapas</span><span>•</span><span>Linguagens e Redação</span></div>
+                    <button class="start-path" type="button" data-path="languages">Ver jornada <span>→</span></button>
+                </article>
+                <article class="path-card humanas-path">
+                    <div class="path-card-heading"><span class="path-label">LEITURA DE MUNDO</span><img
+                            src="img/icon_geo.jpeg" alt=""></div>
+                    <h2>Ciências Humanas</h2>
+                    <p>Conecte História, Geografia, Filosofia e Sociologia para interpretar o mundo.</p>
+                    <div class="path-meta"><span>6 etapas</span><span>•</span><span>Humanas</span></div><button
+                        class="start-path" type="button" data-path="humanas">Ver jornada <span>→</span></button>
+                </article>
             </section>
             <section class="journey-panel card-surface" id="journeyPanel" aria-live="polite" hidden tabindex="-1">
-                <div class="journey-header"><div><p class="page-kicker" id="journeyEyebrow">JORNADA RECOMENDADA</p><h2 id="journeyTitle">ENEM Completa</h2><p id="journeyDescription">Siga uma etapa por vez e mantenha seu ritmo.</p><p class="remaining-steps" id="remainingSteps"></p></div><div class="journey-actions"><button class="study-all" type="button" id="studyAll">Abrir estudos <span>→</span></button><button class="reset-path" type="button" id="resetPath">Reiniciar trilha</button></div></div>
+                <div class="journey-header">
+                    <div>
+                        <p class="page-kicker" id="journeyEyebrow">JORNADA RECOMENDADA</p>
+                        <h2 id="journeyTitle">ENEM Completa</h2>
+                        <p id="journeyDescription">Siga uma etapa por vez e mantenha seu ritmo.</p>
+                        <p class="remaining-steps" id="remainingSteps"></p>
+                    </div>
+                    <div class="journey-actions"><button class="study-all" type="button" id="studyAll">Abrir estudos
+                            <span>→</span></button><button class="reset-path" type="button" id="resetPath">Reiniciar
+                            trilha</button></div>
+                </div>
                 <ol class="steps-list" id="stepsList"></ol>
             </section>
         </section>
     </main>
+
+
+    <!-- =========================================
+         CAIXA DA SMARTPATH IA
+    ========================================== -->
+
+    <div class="smart-ia-box" id="smartIABox">
+
+        <!-- CABEÇALHO -->
+        <div class="smart-ia-header">
+
+            <div class="smart-ia-title">
+
+                <div class="smart-ia-avatar">
+                    <img src="img/IA_smartpath.png" alt="Robô SmartPath">
+                </div>
+
+                <div>
+                    <h3>SmartPath IA</h3>
+                    <span>Seu assistente de estudos</span>
+                </div>
+
+            </div>
+
+            <button class="smart-ia-close" id="closeSmartIA" type="button" aria-label="Fechar SmartPath IA">
+                &times;
+            </button>
+
+        </div>
+
+
+        <!-- ÁREA DO CHAT -->
+        <div class="smart-ia-chat" id="smartIAChat">
+
+            <!-- MENSAGEM INICIAL DA IA -->
+            <div class="smart-ia-message ia-message">
+
+                <div class="message-avatar">
+                    <img src="img/IA_smartpath.png" alt="Ia da smartpath">
+                </div>
+
+                <div class="message-content">
+
+                    <span class="message-name">
+                        SmartPath IA
+                    </span>
+
+                    <p>
+                        Olá! 👋<br>
+                        Sou sua assistente de estudos.
+                        Como posso ajudar você hoje?
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!--
+                AS MENSAGENS DA GEMINI SERÃO
+                INSERIDAS AQUI PELO JAVASCRIPT
+            -->
+
+        </div>
+
+
+        <!-- CAMPO DE MENSAGEM -->
+        <div class="smart-ia-input-area">
+
+            <textarea id="smartIAInput" placeholder="Digite sua dúvida..." rows="1"></textarea>
+
+            <button id="sendSmartIA" class="smart-ia-send" type="button" aria-label="Enviar mensagem">
+
+                <span>➤</span>
+
+            </button>
+
+        </div>
+
+
+        <div class="smart-ia-footer">
+            SmartPath IA • Seu caminho para o conhecimento
+        </div>
+
+    </div>
+   
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script
+        src="https://vlibras.gov.br/app/vlibras-plugin.js">new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
     <script src="trilhas.js"></script>
+
+    <script src="pagina_inicial.js"></script>
 </body>
+
 </html>

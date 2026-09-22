@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="pagina_inicial.css">
     <link rel="stylesheet" href="perfil.css">
 </head>
+
 <body>
     <main class="smart-shell">
         <aside class="smart-sidebar" aria-label="Navegação principal">
@@ -17,12 +19,36 @@
             </div>
 
             <nav class="side-nav">
-                <button class="nav-item" type="button" data-route="pagina_inicial.html"><span><img src="img/botao-de-inicio.png" alt="" class="icones_pagina_inicial"></span><span>Início</span></button>
-                <button class="nav-item" type="button" data-route="estudos.html"><span><img src="img/abra-o-livro.png" alt="" class="icones_pagina_inicial"></span><span>Estudos</span></button>
-                <button class="nav-item" type="button" data-route="trilhas.html"><span><img src="img/maneira.png" alt="" class="icones_pagina_inicial"></span><span>Trilhas</span></button>
-                <button class="nav-item" type="button" data-route="simulados.html"><span><img src="img/confirme.png" alt="" class="icones_pagina_inicial"></span><span>Simulados</span></button>
-                <button class="nav-item" type="button" data-route="desempenho.html"><span><img src="img/grafico.png" alt="" class="icones_pagina_inicial"></span><span>Desempenho</span></button>
-                <button class="nav-item is-active" type="button" aria-current="page"><span><img src="img/perfil-de-usuario.png" alt="" class="icones_pagina_inicial"></span><span>Perfil</span></button>
+                <button class="nav-item" type="button" data-route="pagina_inicial.html"><span><img
+                            src="img/botao-de-inicio.png" alt=""
+                            class="icones_pagina_inicial"></span><span>Início</span></button>
+                <button class="nav-item" type="button" data-route="estudos.html"><span><img src="img/abra-o-livro.png"
+                            alt="" class="icones_pagina_inicial"></span><span>Estudos</span></button>
+                <button class="nav-item" type="button" data-route="trilhas.html"><span><img src="img/maneira.png" alt=""
+                            class="icones_pagina_inicial"></span><span>Trilhas</span></button>
+                <button class="nav-item" type="button" data-route="simulados.html"><span><img src="img/confirme.png"
+                            alt="" class="icones_pagina_inicial"></span><span>Simulados</span></button>
+                <button class="nav-item" type="button" data-route="desempenho.html"><span><img src="img/grafico.png"
+                            alt="" class="icones_pagina_inicial"></span><span>Desempenho</span></button>
+                <button class="nav-item is-active" type="button" aria-current="page"><span><img
+                            src="img/perfil-de-usuario.png" alt=""
+                            class="icones_pagina_inicial"></span><span>Perfil</span></button>
+
+                <!-- CARD DA SMARTPATH IA -->
+                <div class="smartpath-ia-card" id="openSmartIA">
+                    <div class="ia-card-icon">
+                        <img src="img/IA_smartpath.png" alt="Ia da smartpath" class="ia-robot">
+                    </div>
+
+                    <div class="ia-card-text">
+                        <strong>Precisa de ajuda?</strong>
+                        <span>Converse com<br>nosso assistente IA!</span>
+                    </div>
+
+                    <div class="ia-card-arrow">
+                        ›
+                    </div>
+
             </nav>
         </aside>
 
@@ -33,7 +59,8 @@
                     <h1>Meu perfil</h1>
                     <p>Veja sua evolução e mantenha seu plano em dia.</p>
                 </div>
-                <button class="avatar-button" type="button" data-open-profile aria-label="Editar foto e dados do perfil">
+                <button class="avatar-button" type="button" data-open-profile
+                    aria-label="Editar foto e dados do perfil">
                     <img src="img/perfil.png" alt="Foto de perfil">
                 </button>
             </header>
@@ -45,7 +72,8 @@
                     <h2 id="profile-name">Sua jornada começa aqui</h2>
                     <p id="profileGoalText">Defina uma meta para acompanhar seu ritmo de estudos.</p>
                 </div>
-                <button class="secondary-button" type="button" data-open-profile>Editar perfil <span aria-hidden="true">→</span></button>
+                <button class="secondary-button" type="button" data-open-profile>Editar perfil <span
+                        aria-hidden="true">→</span></button>
             </section>
 
             <section class="stats-grid" aria-label="Resumo dos estudos">
@@ -101,7 +129,8 @@
                         </div>
                         <strong id="goalPercent">0%</strong>
                     </div>
-                    <div class="goal-progress" role="progressbar" aria-label="Progresso da meta semanal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="goalProgress"></span></div>
+                    <div class="goal-progress" role="progressbar" aria-label="Progresso da meta semanal"
+                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="goalProgress"></span></div>
                     <p id="goalDetail">Faltam 8h para alcançar sua meta.</p>
                     <button class="text-button" type="button" data-open-profile>Alterar meta semanal</button>
                 </article>
@@ -114,39 +143,166 @@
                         <h2 id="performanceTitle">Proficiência por matéria</h2>
                         <p>Baseada nos acertos que você registrar.</p>
                     </div>
-                    <button class="secondary-button" type="button" data-open-performance>Registrar desempenho <span aria-hidden="true">+</span></button>
+                    <button class="secondary-button" type="button" data-open-performance>Registrar desempenho <span
+                            aria-hidden="true">+</span></button>
                 </div>
                 <div class="subject-list" id="subjectList" aria-live="polite"></div>
-                <p class="empty-state" id="performanceEmpty">Ainda não há desempenho registrado. Faça um exercício e anote seus acertos aqui.</p>
+                <p class="empty-state" id="performanceEmpty">Ainda não há desempenho registrado. Faça um exercício e
+                    anote seus acertos aqui.</p>
             </section>
         </section>
     </main>
 
     <dialog class="profile-dialog" id="profileDialog" aria-labelledby="profileDialogTitle">
         <form method="dialog" id="profileForm">
-            <div class="dialog-header"><div><p class="page-kicker">CONFIGURAÇÕES</p><h2 id="profileDialogTitle">Editar perfil</h2></div><button class="dialog-close" type="button" data-close-dialog="profileDialog" aria-label="Fechar">×</button></div>
+            <div class="dialog-header">
+                <div>
+                    <p class="page-kicker">CONFIGURAÇÕES</p>
+                    <h2 id="profileDialogTitle">Editar perfil</h2>
+                </div><button class="dialog-close" type="button" data-close-dialog="profileDialog"
+                    aria-label="Fechar">×</button>
+            </div>
             <label for="userName">Nome</label>
             <input id="userName" name="userName" type="text" maxlength="60" required>
             <label for="userEmail">E-mail</label>
             <input id="userEmail" name="userEmail" type="email" placeholder="voce@email.com">
             <label for="goalHours">Meta semanal de horas</label>
             <input id="goalHours" name="goalHours" type="number" min="1" max="80" step="1" required>
-            <label class="toggle-label" for="studyReminder"><span><strong>Lembrete de estudos</strong><small>Receba um lembrete para manter o ritmo.</small></span><input id="studyReminder" type="checkbox"><span class="toggle" aria-hidden="true"></span></label>
-            <div class="dialog-actions"><button class="secondary-button" type="button" data-close-dialog="profileDialog">Cancelar</button><button class="primary-cta" id="saveProfile" type="submit">Salvar alterações</button></div>
+            <label class="toggle-label" for="studyReminder"><span><strong>Lembrete de estudos</strong><small>Receba um
+                        lembrete para manter o ritmo.</small></span><input id="studyReminder" type="checkbox"><span
+                    class="toggle" aria-hidden="true"></span></label>
+            <div class="dialog-actions"><button class="secondary-button" type="button"
+                    data-close-dialog="profileDialog">Cancelar</button><button class="primary-cta" id="saveProfile"
+                    type="submit">Salvar alterações</button></div>
         </form>
     </dialog>
 
     <dialog class="profile-dialog" id="performanceDialog" aria-labelledby="performanceDialogTitle">
         <form method="dialog" id="performanceForm">
-            <div class="dialog-header"><div><p class="page-kicker">NOVO REGISTRO</p><h2 id="performanceDialogTitle">Registrar desempenho</h2></div><button class="dialog-close" type="button" data-close-dialog="performanceDialog" aria-label="Fechar">×</button></div>
+            <div class="dialog-header">
+                <div>
+                    <p class="page-kicker">NOVO REGISTRO</p>
+                    <h2 id="performanceDialogTitle">Registrar desempenho</h2>
+                </div><button class="dialog-close" type="button" data-close-dialog="performanceDialog"
+                    aria-label="Fechar">×</button>
+            </div>
             <label for="performanceSubject">Matéria</label>
-            <select id="performanceSubject" required><option>Matemática</option><option>Linguagens</option><option>Ciências da Natureza</option><option>Ciências Humanas</option><option>Redação</option></select>
-            <div class="score-inputs"><div><label for="correctAnswers">Acertos</label><input id="correctAnswers" type="number" min="0" required></div><div><label for="totalAnswers">Total de questões</label><input id="totalAnswers" type="number" min="1" required></div></div>
+            <select id="performanceSubject" required>
+                <option>Matemática</option>
+                <option>Linguagens</option>
+                <option>Ciências da Natureza</option>
+                <option>Ciências Humanas</option>
+                <option>Redação</option>
+            </select>
+            <div class="score-inputs">
+                <div><label for="correctAnswers">Acertos</label><input id="correctAnswers" type="number" min="0"
+                        required></div>
+                <div><label for="totalAnswers">Total de questões</label><input id="totalAnswers" type="number" min="1"
+                        required></div>
+            </div>
             <p class="form-note">O perfil calculará sua proficiência pela média dos registros de cada matéria.</p>
-            <div class="dialog-actions"><button class="secondary-button" type="button" data-close-dialog="performanceDialog">Cancelar</button><button class="primary-cta" id="savePerformance" type="submit">Salvar desempenho</button></div>
+            <div class="dialog-actions"><button class="secondary-button" type="button"
+                    data-close-dialog="performanceDialog">Cancelar</button><button class="primary-cta"
+                    id="savePerformance" type="submit">Salvar desempenho</button></div>
         </form>
     </dialog>
 
+    <!-- =========================================
+         CAIXA DA SMARTPATH IA
+    ========================================== -->
+
+    <div class="smart-ia-box" id="smartIABox">
+
+        <!-- CABEÇALHO -->
+        <div class="smart-ia-header">
+
+            <div class="smart-ia-title">
+
+                <div class="smart-ia-avatar">
+                    <img src="img/IA_smartpath.png" alt="Robô SmartPath">
+                </div>
+
+                <div>
+                    <h3>SmartPath IA</h3>
+                    <span>Seu assistente de estudos</span>
+                </div>
+
+            </div>
+
+            <button class="smart-ia-close" id="closeSmartIA" type="button" aria-label="Fechar SmartPath IA">
+                &times;
+            </button>
+
+        </div>
+
+
+        <!-- ÁREA DO CHAT -->
+        <div class="smart-ia-chat" id="smartIAChat">
+
+            <!-- MENSAGEM INICIAL DA IA -->
+            <div class="smart-ia-message ia-message">
+
+                <div class="message-avatar">
+                    <img src="img/IA_smartpath.png" alt="Ia da smartpath">
+                </div>
+
+                <div class="message-content">
+
+                    <span class="message-name">
+                        SmartPath IA
+                    </span>
+
+                    <p>
+                        Olá! 👋<br>
+                        Sou sua assistente de estudos.
+                        Como posso ajudar você hoje?
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!--
+                AS MENSAGENS DA GEMINI SERÃO
+                INSERIDAS AQUI PELO JAVASCRIPT
+            -->
+
+        </div>
+
+
+        <!-- CAMPO DE MENSAGEM -->
+        <div class="smart-ia-input-area">
+
+            <textarea id="smartIAInput" placeholder="Digite sua dúvida..." rows="1"></textarea>
+
+            <button id="sendSmartIA" class="smart-ia-send" type="button" aria-label="Enviar mensagem">
+
+                <span>➤</span>
+
+            </button>
+
+        </div>
+
+
+        <div class="smart-ia-footer">
+            SmartPath IA • Seu caminho para o conhecimento
+        </div>
+
+    </div>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
     <script src="perfil.js"></script>
+
+    <script
+        src="https://vlibras.gov.br/app/vlibras-plugin.js">new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+    <script src="pagina_inicial.js"></script>
 </body>
+
 </html>
