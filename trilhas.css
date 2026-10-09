@@ -1,4 +1,453 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
-.journey-panel[hidden]{display:none}.path-card.is-selected{outline:3px solid #8fc5fb;outline-offset:2px}.path-card.is-selected .start-path{font-size:0}.path-card.is-selected .start-path::after{content:'Jornada selecionada ✓';font-size:14px}
-.remaining-steps{font-weight:700!important;color:#2877d6!important}.journey-actions{display:flex;gap:9px;align-items:center}.reset-path{padding:11px 4px;border:0;background:transparent;color:#7a899e;font:600 12px 'DM Sans',sans-serif;cursor:pointer}.reset-path:hover{color:#c85050;text-decoration:underline}@media(max-width:780px){.journey-actions{width:100%;justify-content:space-between}}
-.trails-page{padding:42px 42px 70px}.trails-topbar{padding-bottom:30px}.page-kicker{margin:0 0 8px;color:#2877d6;font-size:12px;font-weight:800;letter-spacing:.12em}.trails-topbar p:not(.page-kicker){max-width:700px;font-size:18px;line-height:1.5}.card-surface{background:rgba(255,255,255,.9);border:1px solid #e1ecf8;border-radius:20px;box-shadow:0 12px 32px rgba(47,91,142,.06)}.trail-progress{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:22px 28px;margin-bottom:28px}.progress-copy{display:flex;gap:15px;align-items:center}.progress-icon{display:grid;place-items:center;width:47px;height:47px;border-radius:14px;background:#e5f2ff;color:#2877d6;font-size:31px;font-weight:800}.progress-copy p{margin:0 0 3px;color:#63738d;font-size:14px}.progress-copy strong{color:#142c54;font:800 20px 'Manrope',sans-serif}.progress-copy small{display:block;margin-top:3px;color:#73819a}.progress-visual{width:min(42%,350px)}.progress-track{height:9px;background:#e8eef6;border-radius:20px;overflow:hidden}.progress-track span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#2877d6,#66adf7);transition:width .3s ease}.progress-visual>span{display:block;margin-top:8px;color:#687791;font-size:13px;text-align:right}.trails-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.path-card{min-height:257px;padding:25px;border:1px solid #dfebf7;border-radius:20px;background:#fff;box-shadow:0 10px 25px rgba(43,86,137,.05);transition:transform .2s ease,box-shadow .2s ease}.path-card:hover{transform:translateY(-4px);box-shadow:0 17px 35px rgba(43,86,137,.11)}.path-card-heading{min-height:46px;display:flex;align-items:flex-start;justify-content:space-between}.path-card-heading img{width:46px;height:46px;object-fit:contain;mix-blend-mode:multiply}.path-badge,.path-label{display:inline-flex;padding:7px 10px;border-radius:99px;font-size:10px;font-weight:800;letter-spacing:.08em}.path-badge{color:#fff;background:#2877d6}.path-label{color:#58718f;background:#eff5fb}.path-icon{color:#fff;font-size:25px}.path-card h2{margin:18px 0 7px;color:#112b55;font:800 25px 'Manrope',sans-serif;letter-spacing:-.7px}.path-card>p{min-height:49px;margin:0;color:#60738f;font-size:15px;line-height:1.5}.path-meta{display:flex;gap:8px;margin:19px 0;color:#58718f;font-size:12px;font-weight:700}.start-path,.study-all{padding:0;background:transparent;color:#216bc8;font-weight:800;cursor:pointer}.start-path span,.study-all span{margin-left:4px;font-size:18px}.featured{background:linear-gradient(135deg,#196fcf,#4b9bea);border-color:#196fcf}.featured h2,.featured>p,.featured .path-meta,.featured .start-path{color:#fff}.featured .path-badge{color:#1d70cc;background:#fff}.exatas-path{border-top:4px solid #5c7ce6}.languages-path{border-top:4px solid #df7f61}.humanas-path{border-top:4px solid #7d62ce}.journey-panel{margin-top:28px;padding:30px}.journey-header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.journey-header h2{margin:0;color:#112b55;font:800 27px 'Manrope',sans-serif}.journey-header p:not(.page-kicker){margin:7px 0 0;color:#60738f}.study-all{padding:11px 15px;border:1px solid #cfe1f5;border-radius:10px;white-space:nowrap}.steps-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;padding:0;margin:27px 0 0;list-style:none}.step-item{position:relative;min-height:145px;padding:17px;border:1px solid #e4edf7;border-radius:15px;background:#fbfdff}.step-number{display:grid;place-items:center;width:27px;height:27px;margin-bottom:14px;border-radius:50%;background:#e6f1ff;color:#2877d6;font-size:12px;font-weight:800}.step-item h3{margin:0 0 5px;color:#19355f;font-size:15px}.step-item p{margin:0;color:#70819a;font-size:12px;line-height:1.4}.step-action{position:absolute;right:13px;bottom:12px;border:0;background:none;color:#2877d6;font:700 12px 'DM Sans',sans-serif;cursor:pointer}.step-check{position:absolute;top:14px;right:14px;width:20px;height:20px;accent-color:#2877d6;cursor:pointer}.step-item.is-done{background:#f0f8ff;border-color:#b7dafb}.step-item.is-done .step-number{color:#fff;background:#2877d6}@media(max-width:1100px){.trails-page{padding:36px 25px 55px}.steps-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:780px){.trails-page{width:100%;padding:27px 16px 40px}.trails-topbar{padding-bottom:23px}.trails-topbar h1{font-size:31px}.trails-topbar p:not(.page-kicker){font-size:15px}.trail-progress{align-items:flex-start;flex-direction:column;padding:20px}.progress-visual{width:100%}.trails-grid{grid-template-columns:1fr}.path-card{min-height:0}.journey-panel{padding:21px 17px}.journey-header{flex-direction:column}.steps-list{grid-template-columns:1fr}.step-item{min-height:124px}}
+
+.journey-panel[hidden] {
+    display: none
+}
+
+.path-card.is-selected {
+    outline: 3px solid #8fc5fb;
+    outline-offset: 2px
+}
+
+.path-card.is-selected .start-path {
+    font-size: 0
+}
+
+.path-card.is-selected .start-path::after {
+    content: 'Jornada selecionada ✓';
+    font-size: 14px
+}
+
+.remaining-steps {
+    font-weight: 700 !important;
+    color: #2877d6 !important
+}
+
+.journey-actions {
+    display: flex;
+    gap: 9px;
+    align-items: center
+}
+
+.icone_rel{
+    height: 25px;
+}
+
+
+.reset-path {
+    padding: 11px 4px;
+    border: 0;
+    background: transparent;
+    color: #7a899e;
+    font: 600 12px 'DM Sans', sans-serif;
+    cursor: pointer
+}
+
+.reset-path:hover {
+    color: #c85050;
+    text-decoration: underline
+}
+
+@media(max-width:780px) {
+    .journey-actions {
+        width: 100%;
+        justify-content: space-between
+    }
+}
+
+.trails-page {
+    padding: 42px 42px 70px
+}
+
+.trails-topbar {
+    padding-bottom: 30px
+}
+
+.page-kicker {
+    margin: 0 0 8px;
+    color: #2877d6;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .12em
+}
+
+.trails-topbar p:not(.page-kicker) {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.5
+}
+
+.card-surface {
+    background: rgba(255, 255, 255, .9);
+    border: 1px solid #e1ecf8;
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(47, 91, 142, .06)
+}
+
+.trail-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 22px 28px;
+    margin-bottom: 28px
+}
+
+.progress-copy {
+    display: flex;
+    gap: 15px;
+    align-items: center
+}
+
+.progress-icon {
+    display: grid;
+    place-items: center;
+    width: 47px;
+    height: 47px;
+    border-radius: 14px;
+    background: #e5f2ff;
+    color: #2877d6;
+    font-size: 31px;
+    font-weight: 800
+}
+
+.progress-copy p {
+    margin: 0 0 3px;
+    color: #63738d;
+    font-size: 14px
+}
+
+.progress-copy strong {
+    color: #142c54;
+    font: 800 20px 'Manrope', sans-serif
+}
+
+.progress-copy small {
+    display: block;
+    margin-top: 3px;
+    color: #73819a
+}
+
+.progress-visual {
+    width: min(42%, 350px)
+}
+
+.progress-track {
+    height: 9px;
+    background: #e8eef6;
+    border-radius: 20px;
+    overflow: hidden
+}
+
+.progress-track span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #2877d6, #66adf7);
+    transition: width .3s ease
+}
+
+.progress-visual>span {
+    display: block;
+    margin-top: 8px;
+    color: #687791;
+    font-size: 13px;
+    text-align: right
+}
+
+.trails-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px
+}
+
+.path-card {
+    min-height: 257px;
+    padding: 25px;
+    border: 1px solid #dfebf7;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(43, 86, 137, .05);
+    transition: transform .2s ease, box-shadow .2s ease
+}
+
+.path-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 17px 35px rgba(43, 86, 137, .11)
+}
+
+.path-card-heading {
+    min-height: 46px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between
+}
+
+.path-card-heading img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    mix-blend-mode: multiply
+}
+
+.path-badge,
+.path-label {
+    display: inline-flex;
+    padding: 7px 10px;
+    border-radius: 99px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em
+}
+
+.path-badge {
+    color: #fff;
+    background: #2877d6
+}
+
+.path-label {
+    color: #58718f;
+    background: #eff5fb
+}
+
+.path-icon {
+    color: #fff;
+    font-size: 25px
+}
+
+.path-card h2 {
+    margin: 18px 0 7px;
+    color: #112b55;
+    font: 800 25px 'Manrope', sans-serif;
+    letter-spacing: -.7px
+}
+
+.path-card>p {
+    min-height: 49px;
+    margin: 0;
+    color: #60738f;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+.path-meta {
+    display: flex;
+    gap: 8px;
+    margin: 19px 0;
+    color: #58718f;
+    font-size: 12px;
+    font-weight: 700
+}
+
+.start-path,
+.study-all {
+    padding: 0;
+    background: transparent;
+    color: #216bc8;
+    font-weight: 800;
+    cursor: pointer
+}
+
+.start-path span,
+.study-all span {
+    margin-left: 4px;
+    font-size: 18px
+}
+
+.featured {
+    background: linear-gradient(135deg, #196fcf, #4b9bea);
+    border-color: #196fcf
+}
+
+.featured h2,
+.featured>p,
+.featured .path-meta,
+.featured .start-path {
+    color: #fff
+}
+
+.featured .path-badge {
+    color: #1d70cc;
+    background: #fff
+}
+
+.exatas-path {
+    border-top: 4px solid #5c7ce6
+}
+
+.languages-path {
+    border-top: 4px solid #df7f61
+}
+
+.humanas-path {
+    border-top: 4px solid #7d62ce
+}
+
+.journey-panel {
+    margin-top: 28px;
+    padding: 30px
+}
+
+.journey-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start
+}
+
+.journey-header h2 {
+    margin: 0;
+    color: #112b55;
+    font: 800 27px 'Manrope', sans-serif
+}
+
+.journey-header p:not(.page-kicker) {
+    margin: 7px 0 0;
+    color: #60738f
+}
+
+.study-all {
+    padding: 11px 15px;
+    border: 1px solid #cfe1f5;
+    border-radius: 10px;
+    white-space: nowrap
+}
+
+.steps-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 13px;
+    padding: 0;
+    margin: 27px 0 0;
+    list-style: none
+}
+
+.step-item {
+    position: relative;
+    min-height: 145px;
+    padding: 17px;
+    border: 1px solid #e4edf7;
+    border-radius: 15px;
+    background: #fbfdff
+}
+
+.step-number {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background: #e6f1ff;
+    color: #2877d6;
+    font-size: 12px;
+    font-weight: 800
+}
+
+.step-item h3 {
+    margin: 0 0 5px;
+    color: #19355f;
+    font-size: 15px
+}
+
+.step-item p {
+    margin: 0;
+    color: #70819a;
+    font-size: 12px;
+    line-height: 1.4
+}
+
+.step-action {
+    position: absolute;
+    right: 13px;
+    bottom: 12px;
+    border: 0;
+    background: none;
+    color: #2877d6;
+    font: 700 12px 'DM Sans', sans-serif;
+    cursor: pointer
+}
+
+.step-check {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 20px;
+    height: 20px;
+    accent-color: #2877d6;
+    cursor: pointer
+}
+
+.step-item.is-done {
+    background: #f0f8ff;
+    border-color: #b7dafb
+}
+
+.step-item.is-done .step-number {
+    color: #fff;
+    background: #2877d6
+}
+
+@media(max-width:1100px) {
+    .trails-page {
+        padding: 36px 25px 55px
+    }
+
+    .steps-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:780px) {
+    .trails-page {
+        width: 100%;
+        padding: 27px 16px 40px
+    }
+
+    .trails-topbar {
+        padding-bottom: 23px
+    }
+
+    .trails-topbar h1 {
+        font-size: 31px
+    }
+
+    .trails-topbar p:not(.page-kicker) {
+        font-size: 15px
+    }
+
+    .trail-progress {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 20px
+    }
+
+    .progress-visual {
+        width: 100%
+    }
+
+    .trails-grid {
+        grid-template-columns: 1fr
+    }
+
+    .path-card {
+        min-height: 0
+    }
+
+    .journey-panel {
+        padding: 21px 17px
+    }
+
+    .journey-header {
+        flex-direction: column
+    }
+
+    .steps-list {
+        grid-template-columns: 1fr
+    }
+
+    .step-item {
+        min-height: 124px
+    }
+}
