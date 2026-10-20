@@ -1,43 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const saudacao = document.getElementById('boas-vindas');
-  const nomeUsuario = localStorage.getItem('nomeUsuario');
+    const saudacao = document.getElementById('boas-vindas');
+    const nomeUsuario = localStorage.getItem('nomeUsuario');
 
-  if (saudacao && nomeUsuario) {
-    saudacao.textContent = `Olá, ${nomeUsuario}! 👋`;
-  }
-
-  // Obtém o nome do arquivo atual da URL (ex: "estudos.html")
-  const paginaAtual = window.location.pathname.split("/").pop();
-
-  // Seleciona todos os botões da navegação
-  const botoesNav = document.querySelectorAll(".nav-item");
-
-  botoesNav.forEach(botao => {
-    // Pega o destino do link dentro do atributo onclick
-    const onclickAtributo = botao.getAttribute("onclick") || "";
-    
-    // Verifica se o nome da página atual está contido no link de redirecionamento
-    if (onclickAtributo.includes(paginaAtual)) {
-      botao.classList.add("is-active");
-    } else {
-      botao.classList.remove("is-active");
+    if (saudacao && nomeUsuario) {
+        saudacao.textContent = `Olá, ${nomeUsuario}! 👋`;
     }
-  });
 
-  document.querySelectorAll('[data-route]').forEach((element) => {
-    element.addEventListener('click', () => {
-      window.location.href = element.dataset.route;
+    // Obtém o nome do arquivo atual da URL (ex: "estudos.html")
+    const paginaAtual = window.location.pathname.split("/").pop();
+
+    // Seleciona todos os botões da navegação
+    const botoesNav = document.querySelectorAll(".nav-item");
+
+    botoesNav.forEach(botao => {
+        // Pega o destino do link dentro do atributo onclick
+        const onclickAtributo = botao.getAttribute("onclick") || "";
+
+        // Verifica se o nome da página atual está contido no link de redirecionamento
+        if (onclickAtributo.includes(paginaAtual)) {
+            botao.classList.add("is-active");
+        } else {
+            botao.classList.remove("is-active");
+        }
     });
-  });
 
-  const completed = JSON.parse(localStorage.getItem('smartpath-trail-completed') || '[]').length;
-  const percent = Math.round((completed / 8) * 100);
-  const ring = document.querySelector('.progress-ring');
-  const progressNumber = document.querySelector('.progress-ring strong');
-  const trailModule = document.querySelector('.trail-summary p');
-  if (ring) ring.style.background = `conic-gradient(var(--blue) 0 ${percent}%, #d9eafa ${percent}% 100%)`;
-  if (progressNumber) progressNumber.innerHTML = `${percent}<span>%</span>`;
-  if (trailModule) trailModule.textContent = `Módulo ${completed} de 8`;
+    document.querySelectorAll('[data-route]').forEach((element) => {
+        element.addEventListener('click', () => {
+            window.location.href = element.dataset.route;
+        });
+    });
+
+    const completed = JSON.parse(localStorage.getItem('smartpath-trail-completed') || '[]').length;
+    const percent = Math.round((completed / 8) * 100);
+    const ring = document.querySelector('.progress-ring');
+    const progressNumber = document.querySelector('.progress-ring strong');
+    const trailModule = document.querySelector('.trail-summary p');
+    if (ring) ring.style.background = `conic-gradient(var(--blue) 0 ${percent}%, #d9eafa ${percent}% 100%)`;
+    if (progressNumber) progressNumber.innerHTML = `${percent}<span>%</span>`;
+    if (trailModule) trailModule.textContent = `Módulo ${completed} de 8`;
 });
 
 
@@ -178,40 +178,35 @@ function adicionarCarregando() {
 // FUNÇÃO PARA ADICIONAR RESPOSTA DA IA
 // ==========================================
 
+
 function adicionarMensagemIA(texto) {
-
     const mensagem = document.createElement("div");
-
     mensagem.className = "smart-ia-message ia-message";
 
     const avatar = document.createElement("div");
-
     avatar.className = "message-avatar";
 
     const imagem = document.createElement("img");
-
     imagem.src = "img/IA_smartpath.png";
     imagem.alt = "SmartPath IA";
-
     avatar.appendChild(imagem);
 
-
     const conteudo = document.createElement("div");
-
     conteudo.className = "message-content";
 
-
     const nome = document.createElement("span");
-
     nome.className = "message-name";
     nome.textContent = "SmartPath IA";
 
+    const textoResposta = document.createElement("div");
+    textoResposta.className = "ia-response-text";
 
-    const textoResposta = document.createElement("p");
+    // Converte possíveis quebras escapadas em quebras reais.
+    const respostaFormatada = String(texto)
+        .replace(/\\n/g, "\n")
+        .replace(/\r\n/g, "\n");
 
-    // textContent evita que a resposta da IA seja interpretada como HTML
-    textoResposta.textContent = texto;
-
+    textoResposta.textContent = respostaFormatada;
 
     conteudo.appendChild(nome);
     conteudo.appendChild(textoResposta);
@@ -220,10 +215,9 @@ function adicionarMensagemIA(texto) {
     mensagem.appendChild(conteudo);
 
     smartIAChat.appendChild(mensagem);
-
     smartIAChat.scrollTop = smartIAChat.scrollHeight;
-
 }
+
 
 
 // ==========================================
@@ -691,9 +685,8 @@ async function enviarMensagemIA() {
         // Resposta recebida
 
         if (dados.response) {
-
+            console.log("Resposta recebida:", JSON.stringify(dados.response));
             adicionarMensagemIA(dados.response);
-
         } else {
 
             adicionarMensagemErro();

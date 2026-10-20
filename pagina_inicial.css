@@ -2035,3 +2035,15 @@ button {
     }
 }
 
+
+
+
+.ia-response-text {
+    display: block !important;
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere;
+    line-height: 1.8;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+}
