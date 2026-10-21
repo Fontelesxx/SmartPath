@@ -542,6 +542,11 @@ def smartpath_ia():
 
     try:
 
+        if not GEMINI_API_KEY:
+            return jsonify({
+                "error": "A SmartPath IA não foi configurada no servidor."
+            }), 503
+
         # ------------------------------
         # RECEBER JSON
         # ------------------------------

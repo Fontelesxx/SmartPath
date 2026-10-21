@@ -1,0 +1,10 @@
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+
+# Ambientes e artefatos locais
+.venv/
+__pycache__/
+*.py[cod]
+.vercel/
