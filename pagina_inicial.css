@@ -1014,7 +1014,8 @@ button {
     transition:
         transform .18s var(--ease-out),
         background .18s var(--ease-out),
-        color .18s var(--ease-out);
+        color .18s var(--ease-out),
+        box-shadow .18s var(--ease-out);
 }
 
 
@@ -1030,6 +1031,7 @@ button {
 .nav-item.is-active {
     background: #e5f1ff;
     color: #216bc8;
+    box-shadow: inset 3px 0 0 #2877d6;
 }
 
 
@@ -1717,6 +1719,23 @@ button {
 
 @media (prefers-reduced-motion: no-preference) {
 
+    /* Entrada compartilhada pelas páginas da área do aluno. */
+    .smart-content {
+        animation: content-enter .42s var(--ease-out) both;
+    }
+
+    @keyframes content-enter {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     .next-step-card,
     .metric-card,
     .tip-card {
@@ -2039,11 +2058,46 @@ button {
 
 
 .ia-response-text {
-    display: block !important;
-    white-space: pre-wrap !important;
-    overflow-wrap: anywhere;
-    line-height: 1.8;
+    display: block;
     width: 100%;
-    margin-top: 10px;
     font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.ia-response-text p {
+    margin: 0 0 14px;
+}
+
+.ia-response-text h2 {
+    font-size: 18px;
+    margin: 20px 0 12px;
+}
+
+.ia-response-text h3 {
+    font-size: 16px;
+    margin: 16px 0 10px;
+}
+
+.ia-response-text ul,
+.ia-response-text ol {
+    padding-left: 22px;
+    margin: 8px 0 16px;
+}
+
+.ia-response-text li {
+    margin-bottom: 8px;
+}
+
+.ia-response-text strong {
+    font-weight: 700;
+}
+
+.ia-response-text h2:first-child,
+.ia-response-text h3:first-child {
+    margin-top: 0;
+}
+
+.ia-response-text > :last-child {
+    margin-bottom: 0;
 }

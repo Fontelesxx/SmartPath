@@ -6,23 +6,48 @@ document.addEventListener("DOMContentLoaded", () => {
         saudacao.textContent = `Olá, ${nomeUsuario}! 👋`;
     }
 
-    // Obtém o nome do arquivo atual da URL (ex: "estudos.html")
-    const paginaAtual = window.location.pathname.split("/").pop();
+    // Mantém a guia da página atual selecionada, independentemente de a navegação
+    // usar data-route (páginas novas) ou onclick (páginas legadas).
+    const paginaAtual = window.location.pathname.split("/").pop() || "pagina_inicial.html";
 
-    // Seleciona todos os botões da navegação
-    const botoesNav = document.querySelectorAll(".nav-item");
+    document.querySelectorAll(".nav-item").forEach(botao => {
+        const destino = botao.dataset.route || botao.getAttribute("onclick") || "";
+        const estaNaPaginaAtual = destino.includes(paginaAtual);
 
-    botoesNav.forEach(botao => {
-        // Pega o destino do link dentro do atributo onclick
-        const onclickAtributo = botao.getAttribute("onclick") || "";
+        botao.classList.toggle("is-active", estaNaPaginaAtual);
 
-        // Verifica se o nome da página atual está contido no link de redirecionamento
-        if (onclickAtributo.includes(paginaAtual)) {
-            botao.classList.add("is-active");
+        if (estaNaPaginaAtual) {
+            botao.setAttribute("aria-current", "page");
         } else {
-            botao.classList.remove("is-active");
+            botao.removeAttribute("aria-current");
         }
     });
+
+    // Mostra a mudança de seleção antes de abrir a próxima página. O listener em
+    // captura também cobre os botões antigos que ainda possuem onclick no HTML.
+    let navegandoPelaBarra = false;
+    document.addEventListener("click", evento => {
+        const botao = evento.target.closest(".side-nav .nav-item");
+        if (!botao || navegandoPelaBarra) return;
+
+        const destinoLegado = botao.getAttribute("onclick") || "";
+        const destino = botao.dataset.route || destinoLegado.match(/['\"]([^'\"]+\.html)['\"]/)?.[1];
+        if (!destino) return;
+
+        evento.preventDefault();
+        evento.stopImmediatePropagation();
+        navegandoPelaBarra = true;
+
+        document.querySelectorAll(".side-nav .nav-item").forEach(item => {
+            const selecionado = item === botao;
+            item.classList.toggle("is-active", selecionado);
+            item.toggleAttribute("aria-current", selecionado);
+        });
+
+        window.setTimeout(() => {
+            window.location.href = destino;
+        }, 180);
+    }, true);
 
     document.querySelectorAll('[data-route]').forEach((element) => {
         element.addEventListener('click', () => {
@@ -80,6 +105,61 @@ const smartIAInput = document.getElementById("smartIAInput");
 const sendSmartIA = document.getElementById("sendSmartIA");
 const smartIAChat = document.getElementById("smartIAChat");
 
+// Mantém a conversa disponível enquanto o aluno navega pelas páginas do site.
+const IA_HISTORICO_CHAVE = "smartpath-ia-historico";
+const IA_ABERTA_CHAVE = "smartpath-ia-aberta";
+let restaurandoHistoricoIA = false;
+
+function obterHistoricoIA() {
+    try {
+        const historico = JSON.parse(localStorage.getItem(IA_HISTORICO_CHAVE) || "[]");
+        return Array.isArray(historico) ? historico : [];
+    } catch {
+        return [];
+    }
+}
+
+function registrarMensagemNoHistorico(tipo, texto) {
+    if (restaurandoHistoricoIA) return;
+
+    try {
+        const historico = obterHistoricoIA();
+        historico.push({ tipo, texto: String(texto) });
+        localStorage.setItem(IA_HISTORICO_CHAVE, JSON.stringify(historico.slice(-80)));
+    } catch {
+        // Se o armazenamento não estiver disponível, o chat continua funcionando nesta página.
+    }
+}
+
+function restaurarConversaIA() {
+    if (!smartIAChat) return;
+
+    const historico = obterHistoricoIA();
+    if (historico.length) {
+        restaurandoHistoricoIA = true;
+        smartIAChat.replaceChildren();
+        historico.forEach(mensagem => {
+            if (mensagem.tipo === "aluno") adicionarMensagemAluno(mensagem.texto);
+            if (mensagem.tipo === "ia") adicionarMensagemIA(mensagem.texto);
+        });
+        restaurandoHistoricoIA = false;
+    }
+
+    if (localStorage.getItem(IA_ABERTA_CHAVE) === "true") {
+        smartIABox?.classList.add("active");
+    }
+}
+
+if (smartIABox) {
+    new MutationObserver(() => {
+        try {
+            localStorage.setItem(IA_ABERTA_CHAVE, String(smartIABox.classList.contains("active")));
+        } catch {
+            // Sem armazenamento persistente, não há ação adicional necessária.
+        }
+    }).observe(smartIABox, { attributes: true, attributeFilter: ["class"] });
+}
+
 
 // ==========================================
 // ABRIR IA
@@ -128,6 +208,8 @@ function adicionarMensagemAluno(texto) {
     mensagem.textContent = texto;
 
     smartIAChat.appendChild(mensagem);
+
+    registrarMensagemNoHistorico("aluno", texto);
 
     smartIAChat.scrollTop = smartIAChat.scrollHeight;
 
@@ -179,6 +261,67 @@ function adicionarCarregando() {
 // ==========================================
 
 
+function adicionarTextoFormatado(texto, destino) {
+    String(texto).split(/(\*\*[^*]+\*\*)/g).forEach(trecho => {
+        const destaque = trecho.match(/^\*\*(.+)\*\*$/);
+        const no = document.createElement(destaque ? "strong" : "span");
+        no.textContent = destaque ? destaque[1] : trecho;
+        destino.appendChild(no);
+    });
+}
+
+function formatarRespostaIA(texto, destino) {
+    const linhas = String(texto)
+        .replace(/\\n/g, "\n")
+        .replace(/\r\n?/g, "\n")
+        .split("\n");
+    let paragrafo = [];
+    let lista;
+
+    const finalizarParagrafo = () => {
+        if (!paragrafo.length) return;
+        const elemento = document.createElement("p");
+        adicionarTextoFormatado(paragrafo.join(" "), elemento);
+        destino.appendChild(elemento);
+        paragrafo = [];
+    };
+
+    const finalizarLista = () => {
+        lista = undefined;
+    };
+
+    linhas.forEach(linha => {
+        const titulo = linha.match(/^(#{1,3})\s+(.+)$/);
+        const item = linha.match(/^\s*([-*]|\d+\.)\s+(.+)$/);
+
+        if (titulo) {
+            finalizarParagrafo();
+            finalizarLista();
+            const elemento = document.createElement(titulo[1].length === 1 ? "h2" : "h3");
+            adicionarTextoFormatado(titulo[2], elemento);
+            destino.appendChild(elemento);
+        } else if (item) {
+            finalizarParagrafo();
+            const tipo = /^\d+\.$/.test(item[1]) ? "ol" : "ul";
+            if (!lista || lista.tagName.toLowerCase() !== tipo) {
+                lista = document.createElement(tipo);
+                destino.appendChild(lista);
+            }
+            const elemento = document.createElement("li");
+            adicionarTextoFormatado(item[2], elemento);
+            lista.appendChild(elemento);
+        } else if (!linha.trim()) {
+            finalizarParagrafo();
+            finalizarLista();
+        } else {
+            finalizarLista();
+            paragrafo.push(linha.trim());
+        }
+    });
+
+    finalizarParagrafo();
+}
+
 function adicionarMensagemIA(texto) {
     const mensagem = document.createElement("div");
     mensagem.className = "smart-ia-message ia-message";
@@ -201,12 +344,7 @@ function adicionarMensagemIA(texto) {
     const textoResposta = document.createElement("div");
     textoResposta.className = "ia-response-text";
 
-    // Converte possíveis quebras escapadas em quebras reais.
-    const respostaFormatada = String(texto)
-        .replace(/\\n/g, "\n")
-        .replace(/\r\n/g, "\n");
-
-    textoResposta.textContent = respostaFormatada;
+    formatarRespostaIA(texto, textoResposta);
 
     conteudo.appendChild(nome);
     conteudo.appendChild(textoResposta);
@@ -216,6 +354,8 @@ function adicionarMensagemIA(texto) {
 
     smartIAChat.appendChild(mensagem);
     smartIAChat.scrollTop = smartIAChat.scrollHeight;
+
+    registrarMensagemNoHistorico("ia", texto);
 }
 
 
@@ -488,6 +628,8 @@ function adicionarMensagemAluno(texto) {
 
     smartIAChat.appendChild(mensagem);
 
+    registrarMensagemNoHistorico("aluno", texto);
+
     smartIAChat.scrollTop = smartIAChat.scrollHeight;
 
 }
@@ -566,10 +708,12 @@ function adicionarMensagemIA(texto) {
     nome.textContent = "SmartPath IA";
 
 
-    const textoResposta = document.createElement("p");
+    const textoResposta = document.createElement("div");
+    textoResposta.className = "ia-response-text";
 
-    // textContent evita que a resposta da IA seja interpretada como HTML
-    textoResposta.textContent = texto;
+    // Converte apenas o Markdown suportado em elementos DOM; o conteúdo da IA
+    // continua sendo inserido como texto, sem executar HTML recebido.
+    formatarRespostaIA(texto, textoResposta);
 
 
     conteudo.appendChild(nome);
@@ -581,6 +725,8 @@ function adicionarMensagemIA(texto) {
     smartIAChat.appendChild(mensagem);
 
     smartIAChat.scrollTop = smartIAChat.scrollHeight;
+
+    registrarMensagemNoHistorico("ia", texto);
 
 }
 
@@ -774,3 +920,5 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
+
+restaurarConversaIA();
