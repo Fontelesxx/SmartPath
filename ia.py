@@ -121,6 +121,7 @@ Utilize as seguintes regras:
 - Negrito para destacar conceitos realmente importantes.
 - Fórmulas e cálculos separados do texto explicativo.
 - Exemplos em parágrafos próprios quando necessário.
+- Evite respostas como "$$\text{Tangente} = \frac{\text{Cateto Oposto}}{\text{Cateto Adjacente}}$$", não utilizze $, }, \frac
 
 Evite escrever várias ideias diferentes no mesmo
 parágrafo.
