@@ -104,13 +104,13 @@
 
         .page.active {
             display: block;
-            animation: study-page-in .38s cubic-bezier(.23, 1, .32, 1) both;
+            animation: study-page-in .8s cubic-bezier(.23, 1, .32, 1) both;
         }
 
         @keyframes study-page-in {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(7px);
             }
 
             to {
@@ -143,7 +143,7 @@
             padding: 22px;
             cursor: pointer;
             position: relative;
-            transition: 0.25s;
+            transition: .2s ease;
             display: flex;
             flex-direction: column;
         }
@@ -303,7 +303,7 @@
             border-radius: 16px;
             padding: 20px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: .2s ease;
         }
 
         .recommendation:hover {
@@ -391,7 +391,7 @@
             border-radius: 15px;
             padding: 22px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: .2s ease;
         }
 
         .topic-card:hover {
@@ -512,6 +512,14 @@
             background: #f3f8ff;
             color: #40516a;
             line-height: 1.6;
+        }
+
+        .right-arrow {
+            width: 1em;
+            height: 1em;
+            margin: 0 3px;
+            object-fit: contain;
+            vertical-align: -.12em;
         }
 
         .video-link {
@@ -1291,6 +1299,12 @@
                         title: "Gêneros textuais",
                         description:
                             "Aprenda a reconhecer diferentes gêneros e suas características."
+                    },
+
+                    {
+                        title: "Coesão e coerência",
+                        description:
+                            "Conecte ideias com clareza e mantenha a progressão do texto."
                     }
 
                 ]
@@ -1344,6 +1358,12 @@
                         title: "Meio ambiente",
                         description:
                             "Estude impactos ambientais e sustentabilidade."
+                    },
+
+                    {
+                        title: "Citologia",
+                        description:
+                            "Revise organelas, membrana celular e transporte de substâncias."
                     }
 
                 ]
@@ -1397,6 +1417,12 @@
                         title: "Atualidades",
                         description:
                             "Temas contemporâneos importantes para as provas."
+                    },
+
+                    {
+                        title: "Cartografia",
+                        description:
+                            "Interprete mapas, escalas, projeções e coordenadas geográficas."
                     }
 
                 ]
@@ -1456,6 +1482,12 @@
                         title: "Razão e proporção",
                         description:
                             "Resolva problemas envolvendo proporções e grandezas."
+                    },
+
+                    {
+                        title: "Matemática financeira",
+                        description:
+                            "Pratique juros, descontos, aumentos e comparações de preços."
                     }
 
                 ]
@@ -1491,6 +1523,12 @@
                         title: "Competências do ENEM",
                         description:
                             "Entenda como cada competência é avaliada."
+                    },
+
+                    {
+                        title: "Proposta de intervenção",
+                        description:
+                            "Construa uma solução detalhada e respeitosa aos direitos humanos."
                     }
 
                 ]
@@ -1569,7 +1607,7 @@
                         <li>Repertório é uma referência externa: lei, dado, obra, fato histórico, conceito ou autor. Ele não substitui a explicação.</li>
                         <li>Apresente a referência de modo breve, explique seu sentido e mostre como ela comprova o argumento específico.</li>
                         <li>Evite citações decoradas ou exemplos distantes do tema; a banca valoriza pertinência e uso produtivo.</li>
-                    </ul><p class="study-example"><strong>Estrutura útil:</strong> afirmação → explicação → repertório → relação com a tese.</p></section>
+                    </ul><p class="study-example"><strong>Estrutura útil:</strong> afirmação <img class="right-arrow" src="img/seta-direita.png" alt="" aria-hidden="true"> explicação <img class="right-arrow" src="img/seta-direita.png" alt="" aria-hidden="true"> repertório <img class="right-arrow" src="img/seta-direita.png" alt="" aria-hidden="true"> relação com a tese.</p></section>
                     <section class="content-section"><h4>Como aprofundar um argumento</h4><ul>
                         <li>Pergunte “por quê?”, “quem é afetado?”, “quais efeitos surgem?” e “o que mantém o problema?”.</li>
                         <li>Troque julgamentos genéricos por relações de causa e consequência.</li>
@@ -2045,6 +2083,50 @@
             "Razão e proporção": { videos: [["Razão e proporção para o ENEM", "https://www.youtube.com/watch?v=evXrGaI6SVc"]], material: `<section class="content-section"><h4>Comparar grandezas</h4><ul><li>Razão compara grandezas; proporção afirma que duas razões são equivalentes: a/b = c/d.</li><li>Grandezas diretas crescem ou diminuem juntas; inversas variam em sentidos opostos.</li><li>Escala 1:50.000 indica que 1 unidade no mapa representa 50.000 na realidade, nas mesmas unidades.</li></ul></section><section class="content-section"><h4>Regra de três consciente</h4><ul><li>Antes de multiplicar cruzado, determine se a relação é direta ou inversa.</li><li>Receitas, velocidade, mapas, divisão de quantidades e trabalho em equipe são contextos recorrentes.</li></ul></section>`, questions: [["Três cadernos custam R$ 24. Sete custam:", ["R$ 42", "R$ 48", "R$ 52", "R$ 56", "R$ 60"], 3, "Cada um custa 8; sete custam 56."], ["Na escala 1:50.000, 6 cm representam:", ["300 m", "1 km", "2 km", "3 km", "6 km"], 3, "6 x 50.000 cm = 3 km."], ["Seis trabalhadores fazem uma obra em 15 dias. Dez fazem em:", ["6", "8", "9", "10", "12"], 2, "É relação inversa: 6 x 15 = 10x; x = 9."], ["Mistura de água e concentrado 2:3 em 40 L tem água de:", ["8 L", "12 L", "16 L", "20 L", "24 L"], 2, "São 5 partes; cada parte vale 8 L e água ocupa 2 partes."], ["A 60 km/h, percorrer 300 km leva:", ["4 h", "4 h 30 min", "5 h", "5 h 30 min", "6 h"], 2, "Tempo = distância/velocidade = 300/60 = 5 h."]] }
         };
 
+        /* Videoaulas e materiais complementares adicionados ao catálogo. */
+        const videoLessons = {
+            "Coesão e coerência": {
+                videos: [
+                    ["Coesão textual para o ENEM", "https://www.youtube.com/watch?v=GQ5C743Z0S8"],
+                    ["Coesão e coerência na redação", "https://www.youtube.com/watch?v=CCc1REeVfnw"]
+                ],
+                material: `<section class="content-section"><h4>Como dar unidade ao texto</h4><ul><li><strong>Coesão</strong> é a ligação entre palavras, frases e parágrafos por conectivos, pronomes e repetições conscientes.</li><li><strong>Coerência</strong> é a lógica global: as ideias não podem se contradizer e precisam sustentar a tese.</li><li>Antes de finalizar, confira se cada parágrafo retoma o tema e avança a argumentação.</li></ul><p class="study-example"><strong>Roteiro:</strong> apresente a ideia, explique-a, exemplifique-a e conecte-a novamente à tese.</p></section>`,
+                questions: [["Qual recurso ajuda a estabelecer coesão entre duas ideias?", ["Conectivos", "Títulos aleatórios", "Parágrafos vazios", "Mudança de tema"], 0, "Conectivos como 'portanto', 'porém' e 'além disso' indicam relações entre ideias."]]
+            },
+            "Citologia": {
+                videos: [
+                    ["Videoaulas de citologia para o ENEM", "https://www.youtube.com/results?search_query=citologia+enem+videoaula"],
+                    ["Organelas celulares: revisão em vídeo", "https://www.youtube.com/results?search_query=organelas+celulares+enem+videoaula"]
+                ],
+                material: `<section class="content-section"><h4>Células e organelas</h4><ul><li>A membrana plasmática seleciona o que entra e sai da célula.</li><li>Mitocôndrias participam da produção de energia; ribossomos sintetizam proteínas; o núcleo armazena o material genético.</li><li>Compare células animais e vegetais, observando parede celular, cloroplastos e vacúolo.</li></ul><p class="study-example"><strong>Estratégia ENEM:</strong> associe a organela à sua função antes de analisar as alternativas.</p></section>`,
+                questions: [["A organela mais relacionada à produção de energia é a:", ["mitocôndria", "parede celular", "membrana plasmática", "cromatina"], 0, "A mitocôndria participa da respiração celular e da produção de ATP."]]
+            },
+            "Cartografia": {
+                videos: [
+                    ["Videoaulas de cartografia para o ENEM", "https://www.youtube.com/results?search_query=cartografia+enem+videoaula"],
+                    ["Escala e leitura de mapas", "https://www.youtube.com/results?search_query=escala+cartografica+enem+videoaula"]
+                ],
+                material: `<section class="content-section"><h4>Ler mapas com segurança</h4><ul><li>Legenda, título, orientação, escala e fonte ajudam a interpretar a informação cartográfica.</li><li>Escalas grandes mostram áreas menores com mais detalhes; escalas pequenas representam áreas maiores com menos detalhes.</li><li>Coordenadas geográficas localizam pontos por latitude e longitude.</li></ul><p class="study-example"><strong>Checklist:</strong> identifique o fenômeno representado antes de fazer qualquer cálculo de escala.</p></section>`,
+                questions: [["Em um mapa, a legenda serve para:", ["explicar símbolos e cores", "indicar apenas o autor", "substituir a escala", "mostrar somente o norte"], 0, "A legenda informa o significado dos elementos visuais usados no mapa."]]
+            },
+            "Matemática financeira": {
+                videos: [
+                    ["Porcentagem para o ENEM", "https://www.youtube.com/watch?v=azedx0uou64"],
+                    ["Juros simples e compostos: videoaulas", "https://www.youtube.com/results?search_query=juros+simples+compostos+enem+videoaula"]
+                ],
+                material: `<section class="content-section"><h4>Preço, desconto e juros</h4><ul><li>Descontos e aumentos sucessivos devem ser resolvidos por fatores multiplicativos, não pela simples soma dos percentuais.</li><li>Nos juros simples, o acréscimo incide sobre o capital inicial; nos compostos, incide também sobre os juros acumulados.</li><li>Organize os dados: capital, taxa, período e montante.</li></ul><p class="study-example"><strong>Exemplo:</strong> um desconto de 10% transforma R$ 200 em R$ 180.</p></section>`,
+                questions: [["Um produto de R$ 200 com desconto de 10% passa a custar:", ["R$ 180", "R$ 190", "R$ 210", "R$ 220"], 0, "10% de 200 é 20; portanto, 200 - 20 = 180."]]
+            },
+            "Proposta de intervenção": {
+                videos: [
+                    ["Proposta de intervenção para o ENEM", "https://www.youtube.com/watch?v=nEImAvz96EI"],
+                    ["Como concluir a redação do ENEM", "https://www.youtube.com/results?search_query=conclusao+proposta+de+intervencao+enem+videoaula"]
+                ],
+                material: `<section class="content-section"><h4>Conclusão completa</h4><ul><li>Apresente um <strong>agente</strong>, uma <strong>ação</strong>, um <strong>meio</strong>, uma <strong>finalidade</strong> e um <strong>detalhamento</strong>.</li><li>A proposta deve enfrentar o problema discutido e respeitar os direitos humanos.</li><li>Evite soluções genéricas: explique quem fará o quê, como e com qual objetivo.</li></ul><p class="study-example"><strong>Modelo:</strong> o poder público deve promover campanhas nas escolas, por meio de materiais didáticos, para ampliar a informação da comunidade.</p></section>`,
+                questions: [["Qual item detalha melhor uma proposta de intervenção?", ["Indicar agente, ação, meio e finalidade", "Repetir a tese sem solução", "Criar um novo tema", "Usar apenas uma pergunta"], 0, "Uma intervenção completa explica responsáveis, medidas, forma de execução e objetivo."]]
+            }
+        };
+
 
         /* ==========================================
            ELEMENTOS
@@ -2193,7 +2275,7 @@
         }
 
         function renderLesson(title, description) {
-            const lesson = redacaoLessons[title] || portuguesLessons[title] || naturezaLessons[title] || humanasLessons[title] || matematicaLessons[title];
+            const lesson = redacaoLessons[title] || portuguesLessons[title] || naturezaLessons[title] || humanasLessons[title] || matematicaLessons[title] || videoLessons[title];
 
             if (!lesson) {
                 lessonContent.innerHTML = `

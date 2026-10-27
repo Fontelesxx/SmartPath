@@ -50,7 +50,7 @@ function renderPath(key, shouldScroll = true) {
   document.getElementById('journeyDescription').textContent = path.description;
   document.getElementById('stepsList').innerHTML = path.steps.map((step, index) => {
     const id = `${key}-${index}`, done = completed.includes(id);
-    return `<li class="step-item ${done ? 'is-done' : ''}"><input class="step-check" type="checkbox" data-step="${id}" ${done ? 'checked' : ''} aria-label="Marcar ${step[0]} como concluída"><span class="step-number">${done ? '✓' : index + 1}</span><h3>${step[0]}</h3><p>${step[1]}</p><button class="step-action" type="button" data-destination="${step[2]}">Estudar →</button></li>`;
+    return `<li class="step-item ${done ? 'is-done' : ''}"><input class="step-check" type="checkbox" data-step="${id}" ${done ? 'checked' : ''} aria-label="Marcar ${step[0]} como concluída"><span class="step-number">${done ? '✓' : index + 1}</span><h3>${step[0]}</h3><p>${step[1]}</p><button class="step-action" type="button" data-destination="${step[2]}">Estudar <img class="right-arrow" src="img/seta-direita.png" alt="" aria-hidden="true"></button></li>`;
   }).join('');
   updateProgress();
   if (shouldScroll) {

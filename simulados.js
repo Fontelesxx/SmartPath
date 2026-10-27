@@ -112,7 +112,7 @@ function renderYear(year, shouldAnimate = false) {
             rel="noopener"
           >
             Iniciar 
-            <span aria-hidden="true">→</span>
+            <img class="right-arrow" src="img/seta-direita.png" alt="" aria-hidden="true">
           </a>
 
         </div>
@@ -125,7 +125,7 @@ function renderYear(year, shouldAnimate = false) {
 
       window.setTimeout(() => {
         grid.classList.remove('is-entering');
-      }, 520);
+      }, 1250);
     }
   };
 
@@ -133,7 +133,7 @@ function renderYear(year, shouldAnimate = false) {
   if (shouldAnimate && grid.children.length) {
     grid.classList.add('is-switching');
 
-    window.setTimeout(updateCards, 160);
+    window.setTimeout(updateCards, 1000);
   } else {
     updateCards();
   }

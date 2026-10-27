@@ -104,32 +104,32 @@
 }
 
 .simulados-grid.is-switching .simulado-card {
-    animation: card-leave .16s ease-in both;
+    animation: card-leave 1s ease-in both;
 }
 
 .simulados-grid.is-entering .simulado-card {
-    animation: card-enter .36s cubic-bezier(.23, 1, .32, 1) both;
+    animation: card-enter 1s cubic-bezier(.23, 1, .32, 1) both;
 }
 
 .simulados-grid.is-entering .simulado-card:nth-child(2) {
-    animation-delay: .06s;
+    animation-delay: .1s;
 }
 
 .simulados-grid.is-entering .simulado-card:nth-child(3) {
-    animation-delay: .12s;
+    animation-delay: .2s;
 }
 
 @keyframes card-leave {
     to {
         opacity: 0;
-        transform: translateY(8px) scale(.985);
+        transform: translateY(5px) scale(.99);
     }
 }
 
 @keyframes card-enter {
     from {
         opacity: 0;
-        transform: translateY(14px);
+        transform: translateY(8px);
     }
 
     to {
@@ -233,7 +233,7 @@
     font-size: 13px;
     font-weight: 700;
     text-decoration: none;
-    transition: .18s ease;
+    transition: .2s ease;
 }
 
 .answer-action {
@@ -251,6 +251,18 @@
 .card-action:hover {
     transform: translateY(-2px);
     filter: brightness(.98);
+}
+
+.right-arrow {
+    width: 1em;
+    height: 1em;
+    margin-left: 5px;
+    object-fit: contain;
+    vertical-align: -.12em;
+}
+
+.start-action .right-arrow {
+    filter: brightness(0) invert(1);
 }
 
 .simulados-note {
