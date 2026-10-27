@@ -272,9 +272,9 @@ button {
     transform: translateY(20px) scale(0.97);
 
     transition:
-        opacity 1s ease,
-        transform 1s ease,
-        visibility 1s ease;
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
 }
 
 
