@@ -125,7 +125,7 @@ function renderYear(year, shouldAnimate = false) {
 
       window.setTimeout(() => {
         grid.classList.remove('is-entering');
-      }, 1250);
+      }, 450);
     }
   };
 
@@ -133,7 +133,7 @@ function renderYear(year, shouldAnimate = false) {
   if (shouldAnimate && grid.children.length) {
     grid.classList.add('is-switching');
 
-    window.setTimeout(updateCards, 1000);
+    window.setTimeout(updateCards, 180);
   } else {
     updateCards();
   }

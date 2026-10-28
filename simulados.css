@@ -104,19 +104,19 @@
 }
 
 .simulados-grid.is-switching .simulado-card {
-    animation: card-leave 1s ease-in both;
+    animation: card-leave .18s ease-in both;
 }
 
 .simulados-grid.is-entering .simulado-card {
-    animation: card-enter 1s cubic-bezier(.23, 1, .32, 1) both;
+    animation: card-enter .32s cubic-bezier(.23, 1, .32, 1) both;
 }
 
 .simulados-grid.is-entering .simulado-card:nth-child(2) {
-    animation-delay: .1s;
+    animation-delay: .05s;
 }
 
 .simulados-grid.is-entering .simulado-card:nth-child(3) {
-    animation-delay: .2s;
+    animation-delay: .1s;
 }
 
 @keyframes card-leave {
